@@ -1,0 +1,303 @@
+/* 
+* @Author: Marte
+* @Date:   2017-07-27 14:33:14
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-07-29 18:42:59
+*/
+
+$(document).ready(function(){
+
+    // 响应式处理
+    function responsive(){
+            var width=document.body.clientWidth;//获取文档即视口的宽度
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文 字大小为40px;
+    }
+    responsive();
+    window.onresize=function(){
+        responsive();
+    }
+    function responsive(){
+        var width=document.body.clientWidth;
+        document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+    }
+    responsive();
+    window.onresize=function(){
+        responsive();
+    }
+
+    //=============
+        //规则页
+    //=============
+    if($(".rule").length){
+        $(".btn").click(function(){
+            $(".rule").hide();
+            $(".login").show();
+        });
+    }
+    //=============
+        //登录页
+    //=============
+
+    if($(".login").length){
+        var param;
+        var org=[{"district":[],"id":330000,"name":"省直单位"},{"district":[{"id":330110,"name":"余杭区"},{"id":330102,"name":"上城区"},{"id":330122,"name":"桐庐县"},{"id":330104,"name":"江干区"},{"id":330182,"name":"建德市"},{"id":330106,"name":"西湖区"},{"id":330109,"name":"萧山区"},{"id":330111,"name":"富阳区"},{"id":330103,"name":"下城区"},{"id":330127,"name":"淳安县"},{"id":330105,"name":"拱墅区"},{"id":330185,"name":"临安市"},{"id":330108,"name":"滨江区"}],"id":330100,"name":"杭州市"},{"district":[{"id":330205,"name":"江北区"},{"id":330211,"name":"镇海区"},{"id":330225,"name":"象山县"},{"id":330281,"name":"余姚市"},{"id":330203,"name":"海曙区"},{"id":330283,"name":"奉化区"},{"id":330206,"name":"北仑区"},{"id":330212,"name":"鄞州区"},{"id":330226,"name":"宁海县"},{"id":330282,"name":"慈溪市"}],"id":330200,"name":"宁波市"},{"district":[{"id":330328,"name":"文成县"},{"id":330302,"name":"鹿城区"},{"id":330381,"name":"瑞安市"},{"id":330304,"name":"瓯海区"},{"id":330324,"name":"永嘉县"},{"id":330327,"name":"苍南县"},{"id":330329,"name":"泰顺县"},{"id":330303,"name":"龙湾区"},{"id":330382,"name":"乐清市"},{"id":330305,"name":"洞头区"},{"id":330326,"name":"平阳县"}],"id":330300,"name":"温州市"},{"district":[{"id":330482,"name":"平湖市"},{"id":330402,"name":"南湖区"},{"id":330421,"name":"嘉善县"},{"id":330481,"name":"海宁市"},{"id":330483,"name":"桐乡市"},{"id":330411,"name":"秀洲区"},{"id":330424,"name":"海盐县"}],"id":330400,"name":"嘉兴市"},{"district":[{"id":330502,"name":"吴兴区"},{"id":330521,"name":"德清县"},{"id":330523,"name":"安吉县"},{"id":330503,"name":"南浔区"},{"id":330522,"name":"长兴县"}],"id":330500,"name":"湖州市"},{"district":[{"id":330602,"name":"越城区"},{"id":330604,"name":"上虞区"},{"id":330681,"name":"诸暨市"},{"id":330603,"name":"柯桥区"},{"id":330624,"name":"新昌县"},{"id":330683,"name":"嵊州市"}],"id":330600,"name":"绍兴市"},{"district":[{"id":330726,"name":"浦江县"},{"id":330781,"name":"兰溪市"},{"id":330783,"name":"东阳市"},{"id":330702,"name":"婺城区"},{"id":330723,"name":"武义县"},{"id":330727,"name":"磐安县"},{"id":330782,"name":"义乌市"},{"id":330784,"name":"永康市"},{"id":330703,"name":"金东区"}],"id":330700,"name":"金华市"},{"district":[{"id":330803,"name":"衢江区"},{"id":330824,"name":"开化县"},{"id":330881,"name":"江山市"},{"id":330802,"name":"柯城区"},{"id":330822,"name":"常山县"},{"id":330825,"name":"龙游县"}],"id":330800,"name":"衢州市"},{"district":[{"id":330903,"name":"普陀区"},{"id":330922,"name":"嵊泗县"},{"id":330902,"name":"定海区"},{"id":330921,"name":"岱山县"}],"id":330900,"name":"舟山市"},{"district":[{"id":331081,"name":"温岭市"},{"id":331002,"name":"椒江区"},{"id":331004,"name":"路桥区"},{"id":331022,"name":"三门县"},{"id":331024,"name":"仙居县"},{"id":331082,"name":"临海市"},{"id":331003,"name":"黄岩区"},{"id":331021,"name":"玉环市"},{"id":331023,"name":"天台县"}],"id":331000,"name":"台州市"},{"district":[{"id":331127,"name":"景宁畲族自治县"},{"id":331102,"name":"莲都区"},{"id":331122,"name":"缙云县"},{"id":331124,"name":"松阳县"},{"id":331126,"name":"庆元县"},{"id":331181,"name":"龙泉市"},{"id":331121,"name":"青田县"},{"id":331123,"name":"遂昌县"},{"id":331125,"name":"云和县"}],"id":331100,"name":"丽水市"}];
+
+            // 数据填充
+            $.fn.extend({
+                "casmenu": function (data) {
+                    var template="<option disabled selected >请选择地区/单位</option>";
+                    data.forEach(function(e){  
+                        template+="<option value='"+e.id+"'>"+e.name+"</option>"   
+                    });
+                    this.html(template); 
+                    this.change(function(event) {
+                        var template="<option disabled selected >请选择区县</option>";
+                        var id=$(this).val();
+                        data.forEach(function(e){
+                            if(id == e.id){
+                                e.district.forEach(function(e){
+                                    template+="<option value='"+e.id+"'>"+e.name+"</option>";
+                                });
+                                $(".level_B").html(template); 
+                            }
+                        })                 
+                    });          
+                }
+            });
+            $(".level_A").casmenu(org);
+
+            //select默认颜色
+            $("select").focus(function(event) {
+                $(this).addClass('focus');                
+            });
+            $("select").blur(function(event) {
+               if($(this).val() == null){
+                    $(this).removeClass('focus');
+                }else{
+                    $(this).addClass('focus');
+                }                
+            });
+
+            // 表单验证
+            $("input").blur(function(){
+                if($(this).val() == ''){
+                    $(this).parents('.inputUI').addClass('fail')
+                }else{
+                    $(this).parents('.inputUI').removeClass('fail')
+                }
+            });
+            $("#phone").blur(function(){
+                if(!(/^1[34578]\d{9}$/.test($("#phone").val()))){ 
+                    $("#phone").parents(".inputUI").addClass('fail') 
+                    return false; 
+                }else{
+                    $("#phone").parents(".inputUI").removeClass('fail')
+                }
+            });
+            $("#org").blur(function(){
+                if($(this).val() == null){
+                    $(this).addClass('fail')
+                }else{
+                    $(this).removeClass('fail')
+                }
+            });
+            
+            $.mvalidateExtend({
+                phone:{
+                    required : true,   
+                    pattern : /^0?1[3|4|5|8][0-9]\d{8}$/,
+                    each:function(){
+                       
+                    },
+                    descriptions:{
+                        required : '<div class="field-invalidmsg">请输入手机号码</div>',
+                        pattern : '<div class="field-invalidmsg">您输入的手机号码格式不正确</div>',
+                        valid : '<div class="field-validmsg">正确</div>'
+                    }
+                },
+            });
+            $("form").mvalidate({
+                type:1,
+                onKeyup:true,
+                sendForm:true,
+                firstInvalidFocus:false,
+                valid:function(event,options){
+                    //点击提交按钮时,表单通过验证触发函数
+                    event.preventDefault();
+                      console.log(param)  
+                        $.ajax({
+                          type: 'POST',
+                          url:url+"contest/login",
+                          data:param,
+                          dataType: 'json',
+                          success: function(data){
+                               console.log(data);
+                                if(data.success){
+                                    console.log(data.data)
+                                   window.location.href = "/contest/index"
+                                }else{
+                                    alert(data.message);
+                                }
+                          },
+                          error: function(xhr, type){
+                            alert('Ajax error!')
+                          }
+                        })
+
+                },
+                invalid:function(event, status, options){
+                    //点击提交按钮时,表单未通过验证触发函数
+                },
+                eachField:function(event,status,options){
+                    //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+                },
+                eachValidField:function(val){},
+                eachInvalidField:function(event, status, options){},
+                conditional:{
+                    confirmpwd:function(){
+
+                    }
+                },
+                 descriptions:{
+                    area:{
+                        required : '请选择所在地区'
+                    },
+                     name:{
+                        required : '请输入姓名'
+                    }
+                }
+            });
+        
+            $(".start_btn").click(function(){
+                var name=$("#name").val();
+                var phone=$("#phone").val();
+                var city=$("#org").val();
+                var district=$("#district").val();
+                param=$.param({
+                    name:name,
+                    phone:phone,
+                    city:city,
+                    district:district
+                });
+                // console.log(param);   
+                $("form").submit();
+                $("input").trigger('blur');
+                $("#org").trigger('blur');      
+            });
+           
+        }
+
+        //=============
+            // 答题页
+        // ============
+        if($(".test").length){
+            var url="http://192.168.0.109:8080/";
+            var answer={};
+            var questionLength = $(".item").length;
+            for(var i = 1;i<=10;i++){
+                console.log(i)
+                $(".item .num").eq(i-1).css("backgroundImage","url(../img/number"+i+".png)")
+            }
+            // 提交
+            $(".next_btn").last().html("提交").addClass('submit');
+            $(".submit").click(function(){
+                setTimeout(function(){
+                    answer=JSON.stringify(answer);                    
+                     $.ajax({
+                          type: 'POST',
+                          url:url+"contest/answer",
+                          data:answer,
+                          contentType: "application/json",
+                          dataType: 'json',
+                          success: function(data){
+                            console.log(data);
+                            if(data.success){
+                                console.log(data.data)
+                               window.location.href = "/contest/index"
+                            }else{
+                                alert(data.message);
+                            }
+                              
+                          },
+                          error: function(xhr, type){
+                            alert('Ajax error!')
+                          }
+                        })
+                },0)
+                
+                
+            });
+            // 单选
+            $("li").click(function(){
+                $(this).find('p').addClass('checked');
+                $(this).find('.red').show();
+                $(this).siblings('li').find('p').removeClass('checked');
+                $(this).siblings('li').find('.red').hide();
+                $(this).find(".answer").prop("checked","checked");
+            });
+
+            //下一题
+            $(".next_btn").click(function(){
+                $("input:radio").attr("checked",false);
+               if($("input:checked").length == 0){
+                    $(".hint").show();
+                    setTimeout(function(){
+                    $(".hint").hide();
+                    }, 1500)
+               }else{
+                    var qid=$(".question").data("qid");
+                    var aid=$("input:checked").val();
+                    answer[qid]=aid;
+                    if($(this).parents(".item").next(".item").length){
+                        $(this).parents(".item").remove().next(".item").show();
+                    };
+               }
+            });
+        }
+        //============
+            //结果页
+        //============
+        if($(".result").length){
+            var url="http://192.168.0.109:8080/";
+            $(".finished").click(function(){
+                $(".lottery.complete").show();
+                // $.ajax({
+                //       type: 'POST',
+                //       url:url+"contest/draw",
+                //       dataType: 'json',
+                //       success: function(data){
+                //            console.log(data);
+                //             if(data.success){
+                //                 console.log(data.data)
+                //                window.location.href = "/contest/index"
+                //             }else{
+                //                 alert(data.message);
+                //             }
+                //       },
+                //       error: function(xhr, type){
+                //         alert('Ajax error!')
+                //       }
+                //     })
+            });
+            $(".lottery_btn").click(function(){
+                $(".lottery").show();
+            });
+            $(".back").click(function(){
+                WeixinJSBridge.call('closeWindow');
+            });
+        }
+
+
+        //============
+            //抽奖页
+        //============
+        if($(".lottery").length){
+            
+            $(".close").click(function(){
+                $(".lottery").hide()
+            });
+        }
+        
+
+
+});
