@@ -1,0 +1,43 @@
+//============
+            //结果页
+        //============
+        if($(".result").length){
+            var url="http://192.168.0.109:8080/";
+            $(".finished").click(function(){
+                $(".lottery.complete").show();
+                // $.ajax({
+                //       type: 'POST',
+                //       url:url+"contest/draw",
+                //       dataType: 'json',
+                //       success: function(data){
+                //            console.log(data);
+                //             if(data.success){
+                //                 console.log(data.data)
+                //                window.location.href = "/contest/index"
+                //             }else{
+                //                 alert(data.message);
+                //             }
+                //       },
+                //       error: function(xhr, type){
+                //         alert('Ajax error!')
+                //       }
+                //     })
+            });
+            $(".lottery_btn").click(function(){
+                $(".lottery").show();
+            });
+            $(".back").click(function(){
+                WeixinJSBridge.call('closeWindow');
+            });
+        }
+
+
+        //============
+            //抽奖页
+        //============
+        if($(".lottery").length){
+            
+            $(".close").click(function(){
+                $(".lottery").hide()
+            });
+        }

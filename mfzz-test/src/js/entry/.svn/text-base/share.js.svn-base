@@ -1,0 +1,5 @@
+//引入css
+require("../../style/style.css");
+
+//引入js
+require("../commom.js");
