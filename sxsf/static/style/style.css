@@ -1,0 +1,232 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+
+/* ==========================================================================
+布局相关
+============================================================================ */
+/*
+水平滚动
+*/
+.scroll-x { width: 100%; overflow-y: hidden; overflow-x: auto; -ms-overflow-style: -ms-autohiding-scrollbar; -webkit-overflow-scrolling: touch; }
+
+/*
+垂直滚动
+*/
+.scroll-y { height: 240px; overflow-y: scroll; -webkit-overflow-scrolling: touch; resize: vertical; }
+
+/*
+清除浮动
+*/
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+
+.clearfix:after { clear: both; }
+
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix { zoom: 1; }
+
+/*
+hidden
+*/
+.hidden { overflow: hidden; }
+
+/*
+左浮动
+*/
+.fl { float: left; }
+
+/*
+右浮动
+*/
+.fr { float: right; }
+
+/*
+垂直居中对齐
+*/
+/*父容器*/
+.vertical-box { font-size: 0.001px; }
+
+.vertical-box:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; }
+
+.vertical-middle { display: inline-block; max-width: 100%; vertical-align: middle; }
+
+/*
+块
+*/
+.block { display: block; }
+
+/*
+内联
+*/
+.inline { display: inline; }
+
+/*
+内联-块
+*/
+.inline-block { display: inline-block; }
+
+/*
+隐藏
+*/
+.hide { display: none !important; visibility: hidden !important; }
+
+/* ==========================================================================
+文本相关
+============================================================================ */
+/*
+文字溢出截断
+*/
+/*单行文字截断*/
+.truncate { word-wrap: normal; /*for IE */ text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+
+/*多行文字截断*/
+.line-clamp { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* ios禁止点中黑色框 */
+a { -webkit-tap-highlight-color: transparent; }
+
+button { outline: none; }
+
+input { -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-appearance: none; }
+
+.radioUI { width: 14px; height: 14px; border: 1px solid  #a40809; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; position: relative; box-sizing: border-box; }
+.radioUI .red { width: 9px; height: 9px; background: #a40809; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); display: none; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; }
+.radioUI .show { display: block; }
+.radioUI input { width: 100%; height: 100%; position: absolute; left: 0; top: 0; margin: 0; background: green; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
+.buttonUI { background: #a40909; border: 0; color: #fff; height: 2.2rem; width: 15.95rem; -moz-border-radius: 0.2rem; -webkit-border-radius: 0.2rem; border-radius: 0.2rem; font-size: 0.9rem; font-weight: 700; display: block; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+.buttonUI:active { background: #8a0707; }
+
+.selectUI.empty { border-color: #a40909; box-shadow: 0 0 0.05rem #a40909; }
+
+.selectUI.open { border-color: #ccc; border-bottom: 0; border-radius: 0.25rem 0.25rem 0 0; background: #fff; }
+
+.selectUI { box-sizing: border-box; width: 15.95rem; height: 2.2rem; border: 0.05rem solid #666; -moz-border-radius: 0.25rem; -webkit-border-radius: 0.25rem; border-radius: 0.25rem; font-size: 0.8rem; position: relative; }
+.selectUI .default { position: relative; height: 2.15rem; line-height: 2.2rem; padding-left: 0.7rem; }
+.selectUI .default span { color: #666; }
+.selectUI .default span.checked { color: #2A2A2A; }
+.selectUI .default i { display: block; width: 0.75rem; height: 0.45rem; background: url("../img/icon-1 .png"); background-size: auto 100%; position: absolute; z-index: 20; right: 0.675rem; top: 50%; transform: translateY(-50%); }
+.selectUI ul { position: absolute; left: -0.05rem; box-sizing: border-box; width: 15.95rem; display: none; height: 11rem; overflow-y: scroll; border: 0.05rem solid #ccc; border-radius: 0 0 0.25rem 0.25rem; }
+.selectUI ul li { padding-left: 0.7rem; height: 2.2rem; line-height: 2.2rem; background: #fff; }
+.selectUI ul li:active { background: #faf2eb; }
+.selectUI ul li:last-child { border-radius: 0 0 0.25rem 0.25rem; }
+
+.inputUI.empty { border-color: #a40909; box-shadow: 0 0 0.05rem #a40909; }
+
+.inputUI { box-sizing: border-box; width: 15.85rem; height: 2.2rem; border: 0.05rem solid #666; -moz-border-radius: 0.25rem; -webkit-border-radius: 0.25rem; border-radius: 0.25rem; overflow: hidden; font-size: 0.8rem; }
+.inputUI input { width: 14.55rem; padding-left: 0.7rem; margin-top: 0.6rem; background: transparent; border: 0; height: 0.8rem; line-height: 0.8rem; font-size: 0.8rem; color: #2A2A2A; outline: none; }
+.inputUI input::-webkit-input-placeholder { color: #666; }
+
+.selectBox { width: 15.95rem; border: 0.05rem solid #666; -moz-border-radius: 0.25rem; -webkit-border-radius: 0.25rem; border-radius: 0.25rem; }
+.selectBox li { border-bottom: 0.05rem solid #666; padding: 0.625rem 0; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+.selectBox li .selectOption { position: relative; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+.selectBox li .selectOption .radioUI { position: absolute; top: 50%; transform: translateY(-50%); left: 0.7rem; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+.selectBox li .selectOption span { margin-left: 2.175rem; font-size: 0.8rem; line-height: 1.2rem; color: #666; display: block; width: 12.95rem; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+.selectBox li:last-child { border: 0; }
+
+.resultSelectBox { margin: 0 auto; width: 15.95rem; border: 0.05rem solid #666; box-sizing: border-box; -moz-border-radius: 0.25rem; -webkit-border-radius: 0.25rem; border-radius: 0.25rem; }
+.resultSelectBox li { border-bottom: 0.05rem solid #666; padding: 0.625rem 0; box-sizing: border-box; }
+.resultSelectBox li .selectOption { position: relative; }
+.resultSelectBox li .selectOption .radioUI { position: absolute; top: 50%; transform: translateY(-50%); left: 0.7rem; width: 0.7rem; height: 0.7rem; border: 0.05rem solid #666; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; }
+.resultSelectBox li .selectOption span { margin-left: 2.175rem; font-size: 0.8rem; line-height: 1.2rem; color: #666; display: block; width: 12.95rem; }
+.resultSelectBox li .right { background: url("../img/icon-2.png"); background-size: 100%; border: 0 !important; }
+.resultSelectBox li:last-child { border: 0; }
+
+.checkAnswer { width: 6.25rem; height: 2.5rem; -moz-border-radius: 0.5rem; -webkit-border-radius: 0.5rem; border-radius: 0.5rem; position: fixed; top: 50%; left: 50%; margin-top: -1.25rem; margin-left: -3.125rem; background: rgba(0, 0, 0, 0.65); color: #fff; text-align: center; line-height: 2.5rem; }
+
+.alertUI { position: fixed; bottom: 14.05rem; left: 50%; overflow: hidden; margin-left: -6.75rem; width: 13.5rem; background: #fff; font-weight: 700; -moz-border-radius: 0.75rem; -webkit-border-radius: 0.75rem; border-radius: 0.75rem; }
+.alertUI .tip { font-size: 0.85rem; text-align: center; line-height: 3.025rem; height: 3.025rem; color: #333; }
+.alertUI .buttonBox { height: 2.2rem; text-align: center; font-size: 0.85rem; line-height: 2.2rem; color: #B31212; border-top: 0.025rem solid #999; }
+.alertUI .active { background: #d0d0d0; border-color: #d0d0d0; }
+
+.testAgain .buttonBox { text-align: left; font-size: 0; }
+.testAgain .buttonBox span { font-size: 0.85rem; display: inline-block; width: 50%; text-align: center; border-right: 1px solid #999; box-sizing: border-box; }
+.testAgain .buttonBox .noBorder { border: 0; }
+.testAgain .buttonBox .active { border: 0; }
+
+.submit .buttonBox { text-align: left; font-size: 0; }
+.submit .buttonBox span { display: inline-block; font-size: 0.85rem; width: 50%; text-align: center; border-right: 1px solid #999; box-sizing: border-box; }
+.submit .buttonBox .noBorder { border: 0; }
+.submit .buttonBox .active { border-color: #d0d0d0; }
+
+.fail.alertUI .tip { text-align: center; padding-top: 0.8rem; height: 4.05rem; box-sizing: border-box; }
+.fail.alertUI .tip span { display: inline-block; width: 11.35rem; text-align: left; line-height: 1.2rem; }
+
+.mask { position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, 0.3); }
+
+.scratchBox { position: fixed; bottom: 14.05rem; left: 50%; overflow: hidden; margin-left: -6.75rem; width: 13.5rem; background: #fff; font-weight: 700; padding-bottom: 0.025rem; -moz-border-radius: 0.75rem; -webkit-border-radius: 0.75rem; border-radius: 0.75rem; }
+.scratchBox .tip { font-size: 0.85rem; text-align: center; padding-top: 0.85rem; padding-bottom: 1.06667rem; color: #333; }
+.scratchBox .card { width: 11.6rem; height: 4.2rem; background: url(../img/pic-3.png); background-size: 100%; margin: 0 auto; margin-bottom: 0.8rem; padding-top: 1px; position: relative; }
+.scratchBox .card .text { position: absolute; top: 50%; left: 50%; margin-left: -105px; margin-top: -24px; width: 210px; height: 48px; background: #fff; color: #B31212; line-height: 48px; text-align: center; font-size: 0.85rem; }
+.scratchBox .card .text.fail { color: #666; }
+.scratchBox .card .scratchCard { position: absolute; top: 50%; left: 50%; margin-left: -105px; margin-top: -24px; width: 210px; height: 48px; }
+
+html, body { height: 100%; color: #2A2A2A; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif; }
+
+body { font-size: 0.75rem; background: url("../img/bg-1.jpg") no-repeat; background-size: 18.75rem 30.05rem; background-attachment: fixed; background-position: 0 0; }
+
+body:before { content: ' '; position: fixed; z-index: -1; top: 0; right: 0; bottom: 0; left: 0; background: url("../img/bg-1.jpg") center 0 no-repeat; background-size: cover; }
+
+.page { width: 100%; min-height: 100%; box-sizing: border-box; }
+
+.rulePage { padding-top: 0.95rem; padding-bottom: 3.7rem; }
+.rulePage h1 { font-size: 1.1rem; font-weight: bold; color: #b31212; line-height: 3.7rem; text-align: center; }
+.rulePage .explain { width: 15.95rem; margin: 0 auto 1.3rem; font-size: 0.75rem; line-height: 1.15rem; color: #2A2A2A; }
+.rulePage .ruleTitle { width: 16.75rem; height: 2.5rem; background: url("../img/pic-1.png"); background-size: 100%; margin: 0 auto 0.8rem; }
+.rulePage .ruleTxet { width: 15.95rem; font-size: 0.75rem; line-height: 1.15rem; color: #2A2A2A; margin: 0 auto 2.05rem; }
+.rulePage .ruleTxet h3 { font-weight: 700; }
+.rulePage .buttonUI { display: block; margin: 0 auto; }
+
+.loginPage { padding-top: 2.25rem; height: 100%; box-sizing: border-box; }
+.loginPage h1 { font-size: 1.1rem; font-weight: bold; color: #b31212; text-align: center; margin-bottom: 1.75rem; }
+.loginPage .formBox { width: 15.95rem; margin: 0 auto; }
+.loginPage .formBox .item { margin-bottom: 1rem; }
+.loginPage .formBox .item .title { font-size: 0.8rem; margin-bottom: 0.35rem; }
+.loginPage .buttonUI { margin: 2.65rem auto 0; }
+
+.testPage { padding-top: 1.25rem; }
+.testPage .box { width: 15.95rem; margin: 0 auto; }
+.testPage .box .type { font-size: 0.8rem; margin-bottom: 0.3rem; }
+.testPage .box .type span { font-size: 0.8rem; color: #B31212; }
+.testPage .box .question { font-size: 0.8rem; line-height: 1.2rem; margin-bottom: 0.8rem; }
+.testPage .box .buttonUI { margin-top: 2.75rem; }
+
+.finishPage { padding-top: 2.25rem; }
+.finishPage h1 { font-size: 1.1rem; font-weight: bold; color: #b31212; text-align: center; margin-bottom: 1.9rem; }
+.finishPage .content { width: 15.95rem; height: 20.6rem; background: url("../img/pic-2.png"); background-size: auto 100%; margin: 0 auto; text-align: center; }
+.finishPage .content .title { padding-top: 4.7rem; font-size: 0.85rem; margin-bottom: 1.5rem; }
+.finishPage .content .score { color: #B31212; font-size: 2.65rem; margin-bottom: 2rem; }
+.finishPage .content .remainder { margin-bottom: 1.5rem; }
+.finishPage .content .buttonUI { width: 7.5rem; margin: 0 auto 0.9rem; }
+
+.testPage .buttonBox { width: 15.95rem; margin: 0 auto; }
+.testPage .buttonBox .buttonUI { width: 7.5rem; }
+
+.resultPage { padding-top: 2.25rem; padding-bottom: 3.5rem; }
+.resultPage h1 { font-size: 1.1rem; font-weight: bold; color: #b31212; text-align: center; }
+.resultPage .box { width: 17.15rem; margin: 0.5rem auto 0; }
+.resultPage .box .type { font-size: 0.8rem; padding-top: 1rem; margin: 0 auto 0.3rem; width: 15.95rem; text-indent: -0.1rem; }
+.resultPage .box .type span { font-size: 0.8rem; color: #B31212; }
+.resultPage .box .question { font-size: 0.8rem; line-height: 1.2rem; margin: 0 auto 0.8rem; width: 15.95rem; }
+.resultPage .box .wrongOption { color: #B31212; margin-top: .5rem; padding-left: 0.6rem; }
+.resultPage .box .hr { border-bottom: 0.05rem dashed #B31212; margin-top: 1rem; }
+.resultPage .buttonBox { width: 15.95rem; margin: 2.75rem auto; }
+.resultPage .buttonBox .buttonUI { width: 7.5rem; }
+
+.ContestLoginPage { padding-top: 1.05rem; }
+.ContestLoginPage .prizeTip { width: 15.95rem; margin: 0 auto; margin-bottom: 1.65rem; }
+.ContestLoginPage .prizeTip p { font-size: 0.8rem; line-height: 1.2rem; color: #B31212; }

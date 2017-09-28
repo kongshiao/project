@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <title>普法考试</title>
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+    </head>
+    <body>
+        <div class="page rulePage"  >
+            <h1>绍兴司法普法考试系统</h1>
+            <p class="explain">为深入开展“七五”普法，推进“法润绍兴”行动，进一步增强各级领导干部和广大公务员依法决策、依法行政、依法办事的能力，根据市委、市政府《绍兴市普法教育领导小组关于在全市公民中开展法治宣传教育的第七个五年规划（2016—2020年）》（绍市委发〔2016〕54号）文件要求和市普法办《关于进一步加强国家工作人员、青少年、企业经营管理人员和外来务工人员学法用法的实施意见》（绍市普法办〔2016〕20  号），今年将进一步强化领导干部和公务员学法用法考试机制。
+            </p>
+            <div class="ruleTitle">
+                
+            </div>
+            <div class="ruleTxet">
+                <h3>一.考试对象</h3>
+                <p>
+                    全市市管领导干部和市直单位公务员（含参公人员）。
+                </p>
+                <h3>二、考试内容</h3>
+                <p>
+                    十八大、十八届三中、四中、五中、六中全会精神、宪法、法律法规、党章党规与社会主义法治理念等相关知识。
+                </p>
+                <h3>三、考试时间</h3>
+                <p>
+                    1、微信学法用法考试每月一次，每月的5-25日期间登录均可参加考试。
+                    2、考试题目每月6题，每题3分，每期答题有3次机会，每次答题后按最高分积分，年底一次累计，积分满80分的年底免于网络学法统一考试，微信学法考试积分每年9月底进行统计，积分不满80的参加年底的网络统一考试。
+                </p>
+                <h3>四、注意事项</h3>
+                <p>
+                    1、答题前，请选择单位及所在区域，并填写姓名、联系电话方可开始答题。
+                    2、每月可进行3次测试，系统将记录最高成绩。
+                </p>
+            </div>
+            <button class="buttonUI  show ruleButton">
+                确定
+            </button>
+        </div>
+        <div class="page loginPage" style="display:none;" >
+            <h1>绍兴司法普法考试系统</h1>
+            <div class="formBox">
+                <div class="item" >
+                    <h4 class="title">单位所在地区*</h4>
+                    <div class="selectUI" >
+                        <div class="default" id="areaInput" data-status="close" >
+                            <span>请选择单位所在地区</span>
+                            <i class="icon"></i>
+                        </div>
+                        <ul style="z-index:20;">
+                           <li>
+                               越城区
+                           </li>
+                           <li>
+                               江干区
+                           </li>
+                           <li>
+                               徐虎躯
+                           </li>
+                           <li>
+                               拱墅区
+                           </li>
+                           <li>
+                               滨江区
+                           </li>
+                           <li>
+                               越城区
+                           </li>
+                           <li>
+                               江干区
+                           </li>
+                           <li>
+                               徐虎躯
+                           </li>
+                           <li>
+                               拱墅区
+                           </li>
+                           <li>
+                               滨江区
+                           </li>
+                        </ul>
+                        
+                        <input type="hidden" name="area" id="area" data-default="请选择单位所在地区"/>
+                    </div>
+                </div>
+                <div class="item" >
+                    <h4 class="title">单位*</h4>
+                    <div class="selectUI" >
+                        <div class="default" id="agencyInput" data-status="close">
+                           <span>请选择单位</span>
+                           <i class="icon" style="z-index:11;"></i>
+                       </div >
+                        <ul>
+                           
+                           <li>
+                               越城区
+                           </li>
+                           <li>
+                               江干区
+                           </li>
+                           <li>
+                               徐虎躯
+                           </li>
+                           <li>
+                               拱墅区
+                           </li>
+                           <li>
+                               滨江区
+                           </li>
+                        </ul>
+                        <input type="hidden" name="agency" id="agency" data-default="请选择单位" />
+                    </div>
+                </div>
+                <div class="item" >
+                    <h4 class="title">姓名*</h4>
+                    <div class="inputUI">
+                        <input type="text" placeholder="请输入你的姓名" name="name" id="name" />
+                    </div>
+                </div>
+                <div class="item" >
+                    <h4 class="title">联系电话*</h4>
+                    <div class="inputUI">
+                        <input type="text" placeholder="请输入你的联系电话" name="phone" id="phone"/>
+                    </div>
+                </div>
+            </div>
+            <button class="buttonUI show startTest">
+                开始答题
+            </button>
+        </div>
+        <div class="page testPage" style="display:none;" >
+            <!-- <div class="box">
+                <h3 class="type">【单选题】</h3>
+                <p class="question">
+                    1.问题问题问题问题问题问题问题问题问题问题问题问题问题
+                </p>
+                <ul class="selectBox single">
+                    <li data-checked="0">
+                        <div class="selectOption">
+                            <div class="radioUI">
+                                <div class="red">
+                                    
+                                </div>
+                                <input type="radio"/>
+                            </div>
+                            <span>
+                                A.选项选项选项选项选项选项
+                            </span>
+                        </div>
+                    </li>
+                    <li data-checked="0">
+                        <div class="selectOption">
+                            <div class="radioUI">
+                                <div class="red">
+                                    
+                                </div>
+                                <input type="radio"/>
+                            </div>
+                            <span>
+                                1.选项选项选项选项选项选项
+                            </span>
+                        </div>
+                    </li>
+                     <li data-checked="0">
+                        <div class="selectOption">
+                            <div class="radioUI">
+                                <div class="red">
+                                    
+                                </div>
+                                <input type="radio"/>
+                            </div>
+                            <span>
+                                2.选项选项选项选项选项选项
+                            </span>
+                        </div>
+                    </li>
+                    <li data-checked="0">
+                        <div class="selectOption clearfix">
+                            <div class="radioUI fl">
+                                <div class="red">
+                                    
+                                </div>
+                                <input type="radio"/>
+                            </div>
+                            <span class="fl">
+                                A.选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项选项
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+                <button class="buttonUI next ">
+                    下一题
+                </button>
+            </div> -->
+        </div>
+        <div class="page finishPage" style="display:none;" >
+            <h1>绍兴司法普法考试系统</h1>
+            <div class="content">
+                <h4 class="title">本次普法考试的成绩</h4>
+                <p class="score"><span>80</span>分</p>
+                <p class="remainder">(本期剩余答题次数:<span>2</span>次)</p>
+                <button class="buttonUI again">再考一次</button>
+                <button class="buttonUI iKnow">我知道了</button>
+            </div>
+        </div>
+        <!-- 遮罩 -->
+        <div class="mask" style="display:none">
+            
+        </div>
+        <!-- 判断正误 -->
+        <p class="checkAnswer" style="display:none">
+            回答正确
+        </p>
+        <!-- 是否作答 -->
+        <div class="isRespon alertUI" style="display:none" >
+            <p class="tip">您还没有作答</p>
+            <div class="buttonBox">
+                确定
+            </div>
+        </div>
+        <!-- 再考一次 -->
+        <div class="alertUI testAgain" style="display:none;">
+            <p class="tip">开始新一轮考试？</p>
+            <div class="buttonBox">
+                <span class="cancel">取消</span>
+                <span class="noBorder confirm">确定</span>
+            </div>
+        </div>
+        <!-- 考试次数用完 -->
+        <div class="runOut alertUI" style="display:none;">
+            <p class="tip">您的答题次数已用完！</p>
+            <div class="buttonBox ">
+                我知道了
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文 字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+    </script>
+    <script type="text/javascript" src="static/js/zepto.min.js"></script>
+    <script type="text/javascript" src="static/js/common.js"></script>
+    <script type="text/javascript">
+    // ===========
+    // 弹出框模块
+    // ==========
+
+    //您还没有作答
+     $('.isRespon .buttonBox').bind("touchstart", function (event) {
+            event.preventDefault();
+            $(this).addClass('active');
+     });
+     $('.isRespon .buttonBox').bind("touchend", function (event) {
+         $(this).removeClass('active');
+         $(this).parents('.isRespon').css('display','none');
+         $('.mask').css('display','none');
+       }); 
+
+
+    //考试次数用完-我知道了
+     $('.runOut .buttonBox').bind("touchstart", function (event) {
+            event.preventDefault();
+            $(this).addClass('active');
+     });
+     $('.runOut .buttonBox').bind("touchend", function (event) {
+         $(this).removeClass('active');
+         $(this).parents('.runOut').css('display','none');
+         $('.mask').css('display','none');
+       }); 
+    
+    
+    // 再考一次-取消
+    $('.testAgain .cancel').bind("touchstart", function (event) {
+            event.preventDefault();
+            $(this).addClass('active');
+     });
+    $('.testAgain .cancel').bind("touchend", function (event) {
+         $(this).removeClass('active');
+         $(this).parents('.testAgain').css('display','none');
+         $('.mask').css('display','none');
+       }); 
+    // 再考一次-确定
+    $('.testAgain .confirm').bind("touchstart", function (event) {
+            event.preventDefault();
+            $(this).addClass('active');
+            $(this).siblings('.cancel').css('borderColor',"#d0d0d0");
+     });
+    $('.testAgain .confirm').bind("touchend", function (event) {
+        $(this).siblings('.cancel').css('borderColor',"#999");
+        $(this).removeClass('active');
+         $(this).parents('.testAgain').css('display','none');
+         $('.mask').css('display','none');
+         console.log(change_left)
+         if(change_left==0){
+            $(".runOut").show();
+        }else{
+            loginAjax();
+        }
+
+       }); 
+    // ==========
+    // button模块
+    // ==========
+    // 规则页进入登陆页
+    $(".ruleButton").click(function(){
+        $(this).parents('.rulePage').hide().siblings('.loginPage').show();
+    });
+     //登陆的表单验证
+     var singleItem=[];
+     var phone;
+     var change_left;
+     var loginData;
+    function loginAjax(){
+        $.ajax({
+              type: 'POST',
+              url: 'http://192.168.0.114:8080/sxsf/pfks/login',
+              data:loginData,
+              dataType: 'json',
+              timeout: 300,
+              success: function(data){
+                console.log(data)
+                if(data.meta.success){
+                    singleItem=data.data.single;//单选题数组
+                    // console.log(singleItem)
+                                    
+                    var template="";
+                    for(var i=0;i<singleItem.length;i++){
+                        // console.log(singleItem[i].question);//题目
+                        var selectItem=$.parseJSON(singleItem[i].selectItem);
+                        template+='<div class="box" qid='+singleItem[i].id+' style="display:none"><h3 class="type">【单选题】</h3><p class="question">'+singleItem[i].question+'</p><ul class="selectBox single"><li data-checked="0"><div class="selectOption"><div class="radioUI"><div class="red"></div><input type="radio"/></div><span>A&nbsp;'+selectItem["1"]+'</span></div></li><li data-checked="0"><div class="selectOption"><div class="radioUI"><div class="red"></div><input type="radio"/></div><span>B&nbsp;'+selectItem["2"]+'</span></div></li><li data-checked="0"><div class="selectOption"><div class="radioUI"><div class="red"></div><input type="radio"/></div><span>C&nbsp;'+selectItem["3"]+'</span></div></li><li data-checked="0"><div class="selectOption clearfix"><div class="radioUI fl"><div class="red"></div><input type="radio"/></div><span class="fl">D&nbsp;'+selectItem["4"]+'</span></div></li></ul><button class="buttonUI next ">下一题</button></div>'
+                    }
+
+                    // console.log(template);
+                    $(".testPage").html(template)
+                    $(".testPage .box").eq(0).css("display","block");
+                    $(".testPage .box").last().find("button").addClass('submit').html("提交")
+                    $('.loginPage').hide().siblings('.testPage').show();
+
+                    Select();
+                    nextQuestion();
+
+
+                
+
+                }else{
+                    $(".runOut").show().find(".tip").html(data.meta.message);
+                }
+                // console.log(data)
+              },
+              error: function(xhr, type){
+                alert('Ajax error!')
+              }
+            })
+    }
+
+    function login(){
+
+        $('.startTest').click(function(){
+             //让下拉框回收
+            $('.selectUI ul').css("display","none");
+            $('.selectUI .default').data('status',"close");
+            $('.selectUI').removeClass('open')
+            // console.log(typeof $("#iphone").val());
+                $('#area').val($.trim($('#areaInput').text()));
+                $('#agency').val($.trim($('#agencyInput').text()));
+                $('input[type="hidden"]').each(function(i){
+                    if($(this).val()==$(this).data("default")){
+                        $(this).parents(".selectUI").addClass('empty');
+                    }else{
+                        $(this).parents(".selectUI").removeClass('empty');
+                    }  
+                }); 
+
+                $("input[type='text']").each(function(){
+                    if($(this).val() == ""){
+                        $(this).parents(".inputUI").addClass('empty');
+                    }else{
+                        $(this).parents(".inputUI").removeClass('empty');
+                    }
+                }); 
+
+               if(!(/^1[34578]\d{9}$/.test($("#phone").val()))){ 
+                    $("#phone").parents(".inputUI").addClass('empty') 
+                    return false; 
+                }else{
+                    $("#phone").parents(".inputUI").removeClass('empty')
+                }
+
+
+                if($('.empty').length==0){
+                    var areaVal=$("#area").val();
+                    var agencyVal=$("#agency").val();
+                    var nameVal=$("#name").val();
+                    var phoneVal=$("#phone").val();
+                    phone=$("#phone").val();
+                    var data={"area":areaVal,"agency":agencyVal, "name": nameVal,"phone":phoneVal}
+                    var a=$.param({name:'何方',areaId:1,agencyId:1,phone:phoneVal});
+                    loginData=a;
+                    // console.log(areaVal+","+agencyVal+","+nameVal+","+phoneVal);
+                    // console.log(loginData)
+                    // console.log($.param(data));
+
+                    // 重置
+                    $('input[type="hidden"]').each(function(i){
+                        $(this).siblings('.default').find('span').text($(this).data("default")).removeClass('checked');
+                    }); 
+                    $("input[type='text']").each(function(){
+                        $(this).val("");
+                    }); 
+                    //成功请求ajax;
+                    loginAjax();                   
+                }
+        });
+    }
+    login();
+    
+
+    //下一题
+
+    function nextQuestion(){
+            $('.next').click(function(){
+                var _this=$(this).parent('.box');
+
+                var answer=[];
+                var qid=parseInt(_this.attr("qid"));
+
+                $(this).siblings('.selectBox').find('li').each(function(i){
+                    if($(this).data("checked")=="1"){
+                        answer.push(++i);
+
+                    }
+                });
+
+
+                // 判断答案是否为空
+                if(answer.length==0){
+                    $(".isRespon").css('display', 'block');
+                    $('.mask').css('display','block');
+
+                }else{
+                    //处理单选和多选答案
+                    if(answer.length==1){
+                        answer=answer[0];
+                        // 要传给后台的数据
+                        // console.log(answer);
+                    }
+
+                    //序列化参数
+                    var data=$.param({
+                            answer:answer,
+                            qid:qid,
+                            phone:phone
+                        })
+
+                    // 答案校对接口
+                    $.ajax({
+                          type: 'POST',
+                          url: 'http://192.168.0.114:8080/sxsf/pfks/answer',
+                          data:data,
+                          dataType: 'json',
+                          timeout: 300,
+                          success: function(data){
+                            if(data.meta.success){
+                                if(data.data.right){
+                                    $(".checkAnswer").html("回答正确")
+                                }else{
+                                    $(".checkAnswer").html("回答错误")
+                                }
+                                $(".checkAnswer").show();
+                                setTimeout(function(){
+                                   $(".checkAnswer").hide(); 
+                                   _this.hide().next(".box").show();
+                                }, 500)
+                            }else{
+                                alert(data.meta.message)
+                            }
+
+                          },
+                          error: function(xhr, type){
+                            alert('Ajax error!')
+                          }
+                        })
+                    
+                    // 提交接口
+                    console.log($(this).attr("class"))
+                    if($(this).attr("class").indexOf('submit') != -1){
+                        // _this.show();
+                        var query=$.param({
+                            phone:phone
+                        })
+                        console.log(query)
+                        // alert("提交")
+                        $.ajax({
+                          type: 'POST',
+                          url: 'http://192.168.0.114:8080/sxsf/pfks/submit',
+                          data:query,
+                          dataType: 'json',
+                          timeout: 300,
+                          success: function(data){
+                            change_left=data.data.change_left;
+                            console.log(data)
+                            console.log(change_left)
+
+                            setTimeout(function(){
+                                if(data.meta.success){
+
+                                    _this.parents(".testPage").hide().siblings('.finishPage').show().find(".score span").html(data.data.score).parents(".score").siblings('.remainder').find("span").html(data.data.change_left);
+
+                                 }
+                            }, 500)
+                             
+                            
+                            
+                          },
+                          error: function(xhr, type){
+                            alert('Ajax error!')
+                          }
+                        })
+
+                    }
+
+                }
+            
+            
+        });
+    }
+
+
+
+
+     // 再考一次    
+    $(".again").click(function(){
+        $('.testAgain').css('display','block').addClass('active');
+        $('.mask').css('display','block');
+    });
+
+
+    </script>
+    
+</html>

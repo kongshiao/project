@@ -1,0 +1,763 @@
+@import "compass/reset";
+@import "lib/utility";
+@import "compass/css3";
+
+ // ==========================================================================
+ //   Component: base
+ // ============================================================================ 
+ button{
+    outline: none;
+ }
+// ===============
+//  UI component
+// ===============
+// 
+// 解决ios点击出现黑背景
+input{
+    -webkit-tap-highlight-color:rgba(255,255,255,0);
+    -webkit-appearance:none
+    
+}
+
+// 单选组件
+.radioUI{
+    width:14px;
+    height:14px;
+    border:1px solid  #a40809;
+    @include border-radius(50%);
+    position: relative;
+    box-sizing: border-box;;
+    .red{
+        
+        width:9px;
+        height:9px;
+        background:#a40809;
+        position:absolute;
+        top:50%;
+        left:50%;
+        -webkit-transform: translate(-50%,-50%);
+           -moz-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+             -o-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+        display:none;
+        @include border-radius(50%);
+    }
+    .show{
+        display:block;
+    }
+    input{
+        width:100%;
+        height:100%;
+        position:absolute;
+        left:0;
+        top:0;
+        margin:0;   
+        background:green;
+        @include opacity(0); 
+        -webkit-tap-highlight-color:rgba(255,255,255,0);
+    }
+}
+
+
+
+
+// 按钮组件
+.buttonUI{
+      background:#a40909;
+      border:0;
+      color:#fff;
+      height:(88rem/40);
+      width:(638rem/40);
+      @include border-radius(8rem/40);
+      font-size: (36rem/40);
+      font-weight: 700;
+      display:block;
+      // text-align: center;
+      // line-height:(88rem/40);
+      -webkit-tap-highlight-color:rgba(255,255,255,0);
+      &:active{
+            background:#8a0707;
+        }
+}
+
+// 下拉框组件
+.selectUI.empty{
+    border-color: #a40909;
+    box-shadow: 0 0 (2rem/40) #a40909;
+}
+.selectUI.open{
+    border-color: #ccc;
+    border-bottom: 0;
+    border-radius:(10rem/40) (10rem/40) 0 0 ;
+    background:#fff;
+}
+.selectUI{
+    box-sizing: border-box;
+    width:(638rem/40);
+    height:(88rem/40);
+    border:(2rem/40) solid #666;
+    @include border-radius(10rem/40);
+    font-size:(32rem/40);
+    position:relative;
+    .default{
+        position:relative;
+        height:(86rem/40);
+        line-height: (88rem/40);
+        padding-left: (28rem/40);
+        span{
+            color:#666;
+            &.checked{
+            color:#2A2A2A;
+        }
+        }   
+        
+        i{
+        display:block;
+        width:(30rem/40);
+        height:(18rem/40);
+        background:url('../img/icon-1 .png');
+        background-size: auto 100%;
+        position:absolute;
+        z-index: 20;
+        right:(27rem/40);
+        top:50%;
+        transform:translateY(-50%);
+    }
+    }
+    ul{ 
+        position:absolute;
+        left:(-2rem/40);
+        box-sizing: border-box;
+        width:(638rem/40);
+        display:none;
+        height:(440rem/40);
+        overflow-y: scroll;
+        border:(2rem/40) solid #ccc;
+        border-radius: 0 0 (10rem/40) (10rem/40);
+        li{
+            padding-left: (28rem/40);
+            height:(88rem/40);
+            line-height:(88rem/40);
+            background:#fff;
+            &:active{
+                background:#faf2eb;
+            }
+            &:last-child{
+               border-radius: 0 0 (10rem/40) (10rem/40);
+            }
+
+        }
+    }
+}
+// .selectUI{
+//     box-sizing: border-box;
+//     width:(634rem/40);
+//     height:(88rem/40);
+//     border-bottom:(2rem/40) solid #666;
+//     @include border-radius(10rem/40);
+//     overflow:hidden;
+//     font-size:(32rem/40);
+//     position:relative;
+//     .default{
+//         height:(88rem/40);
+//         line-height: (888rem/40);
+//     }
+//     .open{
+//         border-color: #ccc;
+//     }
+
+//     ul{
+//         position:absolute;
+//         z-index: 10;
+//         width:100%;
+//         box-sizing: border-box;
+//         border:(2rem/40) solid #666;
+//         height:(440rem/40);
+//         overflow-y: scroll;
+//         @include border-radius(10rem/40);
+//         .default{
+//             color:#666;
+//             background:transparent;
+//             border-radius: (10rem/40) (10rem/40) 0 0;
+//         }
+//         .unDefault{
+//             background:#fff;
+//             border-bottom:(2rem/40) solid #ccc;
+//         }
+
+//         li{
+//             padding-left: (28rem/40);
+//             height:(88rem/40);
+//             line-height:(88rem/40);
+//             background:#fff;
+//             &:last-child{
+//                border-radius: 0 0 (10rem/40) (10rem/40);
+//             }
+
+//         }
+
+//     }
+//     i{
+//         display:block;
+//         width:(30rem/40);
+//         height:(18rem/40);
+//         background:url('../img/icon-1 .png');
+//         background-size: auto 100%;
+//         position:absolute;
+//         z-index: 20;
+//         right:(27rem/40);
+//         top:50%;
+//         transform:translateY(-50%);
+//     }
+
+// }
+// 输入框组件
+.inputUI.empty{
+    border-color: #a40909; 
+   box-shadow: 0 0 (2rem/40) #a40909; 
+}
+.inputUI{
+    box-sizing: border-box;
+    width:(634rem/40);
+    height:(88rem/40);
+    border:(2rem/40) solid #666;
+    @include border-radius(10rem/40);
+    overflow:hidden;
+    font-size:(32rem/40);
+    input{
+        width:(582rem/40);
+        // margin-left: (28rem/40);
+        padding-left:(28rem/40);
+        margin-top:(24rem/40);
+        background:transparent;
+        border:0;
+        height:(32rem/40);
+        line-height: (32rem/40);
+        font-size:(32rem/40);
+        color:#2A2A2A;
+        outline:none;
+        &::-webkit-input-placeholder{
+            color:#666;
+        }
+    }
+}
+
+// 答案组件
+.selectBox{
+    width:(638rem/40);
+    border:(2rem/40)solid #666;
+    // box-sizing:border-box;
+    @include border-radius(10rem/40);
+    li{
+        border-bottom:(2rem/40) solid #666;
+        padding:(25rem/40) 0;
+        // box-sizing: border-box;
+        -webkit-tap-highlight-color:rgba(255,255,255,0);
+        .selectOption{
+            position:relative;
+            -webkit-tap-highlight-color:rgba(255,255,255,0);
+            .radioUI{
+                position:absolute;
+                top:50%;
+                transform:translateY(-50%);
+                left:(28rem/40);
+                -webkit-tap-highlight-color:rgba(255,255,255,0);
+                
+            }
+            span{
+               
+                margin-left: (87rem/40);
+                font-size: (32rem/40);
+                line-height: (48rem/40);
+                color:#666;
+                display:block;
+                width:(518rem/40);
+                -webkit-tap-highlight-color:rgba(255,255,255,0);
+
+                
+            }
+        }
+        &:last-child{
+            border:0;
+        }
+
+    }
+
+}
+
+
+.resultSelectBox{
+    margin:0 auto;
+    width:(638rem/40);
+    border:(2rem/40) solid #666;
+    box-sizing:border-box;
+    @include border-radius(10rem/40);
+    li{
+        border-bottom:(2rem/40) solid #666;
+        padding:(25rem/40) 0;
+        box-sizing: border-box;
+        .selectOption{
+            position:relative;
+            .radioUI{
+                position:absolute;
+                top:50%;
+                transform:translateY(-50%);
+                left:(28rem/40);
+                width:(28rem/40);
+                height:(28rem/40);
+                border:(2rem/40) solid  #666;
+                @include border-radius(50%);                
+            }
+            span{
+               
+                margin-left: (87rem/40);
+                font-size: (32rem/40);
+                line-height: (48rem/40);
+                color:#666;
+                display:block;
+                width:(518rem/40);
+                
+            }
+        }
+        .right{
+            background:url('../img/icon-2.png');
+            background-size: 100%;
+            border:0 !important;
+        }
+        &:last-child{
+            border:0;
+        }
+
+    }
+
+}
+
+// 判断正误弹出框
+.checkAnswer{
+    width:(250rem/40);
+    height:(100rem/40);
+    @include border-radius(20rem/40);
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:(-50rem/40);
+    margin-left: (-125rem/40);
+    background:rgba(0,0,0,.65);
+    color:#fff;
+    text-align:center;
+    line-height:(100rem/40);
+
+}
+
+// 弹出框
+.alertUI{
+    position:fixed;
+    bottom:(562rem/40);
+    left:50%;
+    overflow:hidden;
+    margin-left: (-270rem/40);
+    width:(540rem/40);
+    background:#fff;
+    font-weight: 700;
+    @include border-radius(30rem/40);
+    .tip{
+        font-size:(34rem/40);
+        text-align: center;
+        line-height: (121rem/40);
+        height:(121rem/40);
+        color:#333;
+       
+    }
+    .buttonBox{
+        height:(88rem/40);
+        text-align:center;
+        font-size:(34rem/40);
+        line-height: (88rem/40);
+        color:#B31212;
+        border-top: (1rem/40) solid #999;
+    }
+    .active{
+        background:#d0d0d0;
+        border-color: #d0d0d0;
+    }
+}
+
+.testAgain{
+    .buttonBox{
+        text-align: left;
+        font-size: 0;
+        span{
+            font-size: (34rem/40);
+            display:inline-block;
+            width:50%;
+            text-align: center;
+            border-right: 1px solid #999;
+            box-sizing:border-box;
+        }
+        .noBorder{
+            border:0;
+        }
+        .active{
+            border:0;
+        }
+    }
+}
+
+.submit{
+    .buttonBox{
+        text-align: left;
+         font-size: 0;
+        span{
+            display:inline-block;
+            font-size: (34rem/40);
+            width:50%;
+            text-align: center;
+            border-right: 1px solid #999;
+            box-sizing:border-box;
+        }
+        .noBorder{
+            border:0;
+        }
+        .active{
+            border-color:#d0d0d0;
+        }
+    }
+}
+
+.fail.alertUI{
+    .tip{
+        text-align: center;
+        padding-top:(32rem/40);
+        height:(162rem/40);
+        box-sizing: border-box;
+        span{
+            display:inline-block;
+            width:(454rem/40);
+            text-align:left; 
+            line-height: (48rem/40); 
+        }
+              
+    }
+}
+
+// 遮罩层
+.mask{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background:rgba(0,0,0,.3)
+}
+
+// 刮刮卡组件
+
+.scratchBox{
+    position:fixed;
+    bottom:(562rem/40);
+    left:50%;
+    overflow:hidden;
+    margin-left: (-270rem/40);
+    width:(540rem/40);
+    background:#fff;
+    font-weight: 700;
+    padding-bottom: (1rem/40);
+    @include border-radius(30rem/40);
+    .tip{
+        font-size:(34rem/40);
+        text-align: center;
+        padding-top: (34rem/40);
+        padding-bottom: (32rem/30);
+        color:#333; 
+    }
+    .card{
+        width:(464rem/40);
+        height:(168rem/40);
+        background:url(../img/pic-3.png);
+        background-size: 100%;
+        margin:0 auto;
+        margin-bottom: (32rem/40);
+        padding-top: 1px;
+        position:relative;
+        .text{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-105px;
+            margin-top:-24px;
+            width:210px;
+            height:48px;
+            background:#fff;
+            color:#B31212;
+            line-height:48px;
+            text-align:center;
+            font-size:(34rem/40);
+        }
+        .text.fail{
+            color:#666;
+        }
+        .scratchCard{
+            // margin:(36rem/40 ) auto 0;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-105px;
+            margin-top:-24px;
+            width:210px;
+            height:48px;
+        }
+    }
+}
+
+
+
+
+
+ // ===============
+// popularizelLaw style-css
+// ===============
+ html,body{
+    height:100%;
+    color:#2A2A2A;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+             "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+             SimSun, sans-serif;
+ }
+ body{
+    font-size:(30rem/40);
+    background:url('../img/bg-1.jpg') no-repeat;
+    background-size: (750rem/40) (1202rem/40);
+    background-attachment: fixed;
+    background-position: 0 0;
+    
+ }
+ //解决ios不支持 background-attachment: fixed;
+ body:before { content: ' '; position: fixed; z-index: -1; top: 0; right: 0; bottom: 0; left: 0; background: url('../img/bg-1.jpg') center 0 no-repeat; background-size: cover;
+ }
+
+ .page{
+    width:100%;
+    min-height:100%;
+    box-sizing: border-box;
+
+ }
+
+.rulePage{
+    padding-top:(38rem/40);
+    padding-bottom: (148rem/40);
+    h1{
+        font-size:(44rem/40);
+        font-weight: bold;
+        color:#b31212;
+        line-height: (148rem/40);
+        text-align: center;
+    }
+    .explain{
+        width:(638rem/40);
+        margin: 0 auto (52rem/40);
+        font-size:(30rem/40);
+        line-height: (46rem/40);
+        color:#2A2A2A;
+        
+    }
+    .ruleTitle{
+        width:(670rem/40);
+        height:(100rem/40);
+        background:url('../img/pic-1.png');
+        background-size: 100%;
+        margin:0 auto (32rem/40);
+    }
+    .ruleTxet{
+        width:(638rem/40);
+        font-size:(30rem/40);
+        line-height: (46rem/40);
+        color:#2A2A2A;
+        margin:0 auto (82rem/40);
+        h3{
+            font-weight:700 ;
+        }
+    }
+    .buttonUI{
+        display: block;
+        margin:0 auto;
+    }
+}
+
+.loginPage{
+    padding-top:(90rem/40);
+    height:100%;
+    box-sizing: border-box;
+    h1{
+        font-size:(44rem/40);
+        font-weight: bold;
+        color:#b31212;
+        text-align: center;
+        margin-bottom: (70rem/40);
+    }
+    .formBox{
+        width:(638rem/40);
+        margin: 0 auto;
+        .item{
+            margin-bottom: (40rem/40);
+            .title{
+                font-size: (32rem/40);
+                margin-bottom: (14rem/40);
+            }
+        }
+        
+    }
+    .buttonUI{
+        margin:(106rem/40) auto 0;
+    }
+}
+
+.testPage{
+    padding-top:(50rem/40);
+    .box{
+        width:(638rem/40);
+        margin:0 auto;
+        .type{
+            font-size:(32rem/40);
+            margin-bottom:(12rem/40);
+            span{
+                font-size: (32rem/40);
+                color:#B31212;
+            }
+        }
+        .question{
+             font-size:(32rem/40);
+             line-height: (48rem/40);
+             margin-bottom: (32rem/40);
+        }
+        .buttonUI{
+            margin-top:(110rem/40);
+        }
+    }
+    
+}
+
+.finishPage{
+    padding-top:(90rem/40);
+    h1{
+        font-size:(44rem/40);
+        font-weight: bold;
+        color:#b31212;
+        text-align: center;
+        margin-bottom:(76rem/40);
+    }
+    .content{
+        width:(638rem/40);
+        height:(824rem/40);
+        background:url('../img/pic-2.png');
+        background-size: auto 100%;
+        margin:0 auto;
+        text-align: center;
+        .title{
+            padding-top: (188rem/40);
+            font-size: (34rem/40);
+            margin-bottom:(60rem/40);
+        }
+        .score{
+            color:#B31212;
+            font-size: (106rem/40);
+            margin-bottom: (80rem/40);
+        }
+        .remainder{
+            margin-bottom: (60rem/40);
+        }
+        .buttonUI{
+            width:(300rem/40);
+            margin:0 auto (36rem/40);
+        }
+       
+    }
+}
+
+ // ===============
+// unifiedTest style-css
+// ===============
+.testPage{
+    .buttonBox{
+        width:(638rem/40);
+        margin:0 auto;
+        .buttonUI{
+            width:(300rem/40);
+        }
+    }
+}
+
+.resultPage{
+    padding-top:(90rem/40);
+    padding-bottom: (140rem/40);
+    h1{
+        font-size:(44rem/40);
+        font-weight: bold;
+        color:#b31212;
+        text-align: center;
+    }
+    .box{
+        width:(686rem/40);
+        margin:(20rem/40) auto 0;
+        .resultItem{
+
+        }
+        .type{
+            font-size:(32rem/40);
+            padding-top:(40rem/40);
+            margin:0 auto (12rem/40);
+            width:(638rem/40);
+            text-indent: (-4rem/40);
+            span{
+                font-size: (32rem/40);
+                color:#B31212;
+            }
+        }
+        .question{
+             font-size:(32rem/40);
+             line-height: (48rem/40);
+             margin:0 auto (32rem/40);
+             width:(638rem/40);
+        }
+        .wrongOption{
+            color:#B31212;
+            
+            margin-top:.5rem;
+            padding-left: (24rem/40);
+        }
+        .hr{
+            border-bottom: (2rem/40) dashed #B31212;
+            margin-top: 1rem;
+        }
+    }
+    .buttonBox{
+        width:(638rem/40);
+        margin:(110rem/40) auto;
+        .buttonUI{
+            width:(300rem/40);
+        }
+    }
+
+}
+
+ // ===============
+// knowledgeContest style-css
+// ===============
+.ContestLoginPage{
+    padding-top:(42rem/40);
+    .prizeTip{
+    // padding-top:(42rem/40);
+    width:(638rem/40);
+    margin:0 auto;
+    margin-bottom: (66rem/40);
+    p{
+        font-size: (32rem/40);
+        line-height: (48rem/40);
+        color:#B31212;
+    }
+    
+}
+}
+
+
+

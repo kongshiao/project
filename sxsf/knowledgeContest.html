@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <title>知识竞赛</title>
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+    </head>
+    <body ontouchmove="return false">
+        <div class="page rulePage" style="display:none;">
+            <h1>绍兴司法知识竞赛系统</h1>
+            <p class="explain">
+                为深入贯彻落实省委省政府“五水共治”和市委市政府“重构绍兴产业、重建绍兴水城”的决策部署，为“五水共治”工作营造良好的法治氛围，根据我市“五水共治 法治助力”主题宣传活动的安排，绍兴市司法局、绍兴市普法办决定开展“五水共治”法律知识竞赛活动。本次竞赛采取微信答题的形式，在“绍兴普法”微信公众号上进行。活动周期长、奖项多、奖励丰厚！普法君喊你赶快来答题啦！
+            </p>
+            <div class="ruleTitle">
+                
+            </div>
+            <div class="ruleTxet">
+               <p>
+                   1、共五题
+               </p>
+               <p>
+                   2、全部正确参与抽奖活动
+               </p>
+               <p>
+                3、每期仅有一次机会参与竞赛     
+               </p>
+            </div>
+            <button class="buttonUI show ">
+                确定
+            </button>
+        </div>
+        <div class="page loginPage ContestLoginPage"  >
+            <div class="prizeTip">
+                <p class="prize">恭喜您获得了“50元话费”。</p>
+                <p >请填您的信息,我们会尽快将奖品发送给您。</p>
+            </div>
+            
+            <div class="formBox">
+                <div class="item" >
+                    <h4 class="title">姓名*</h4>
+                    <div class="inputUI">
+                        <input type="text" id="name" placeholder="请输入你的姓名" />
+                    </div>
+                </div>
+                <div class="item" >
+                    <h4 class="title">联系电话*</h4>
+                    <div class="inputUI">
+                        <input type="text" id="phone" placeholder="请输入你的联系电话"/>
+                    </div>
+                </div>
+            </div>
+            <button class="buttonUI">
+                提交
+            </button>
+        </div>
+        <div class="page testPage" style="display:none;"   >
+            <div class="box">
+                <h3 class="type">【单选题】</h3>
+                <p class="question">
+                    1.问题问题问题问题问题问题问题问题问题问题问题问题问题
+                </p>
+
+                <ul class="selectBox single">
+                    <li>
+                        <div class="selectOption">
+                            <div class="radioUI">
+                                <div class="red">
+                                    
+                                </div>
+                                <input type="radio"/>
+                            </div>
+                            <span>
+                                A.选项选项选项选项选项选项
+                            </span>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="selectOption">
+                            <div class="radioUI">
+                                <div class="red">
+                                    
+                                </div>
+                                <input type="radio"/>
+                            </div>
+                            <span>
+                                A.选项选项选项选项选项选项
+                            </span>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="selectOption">
+                            <div class="radioUI">
+                                <div class="red">
+                                    
+                                </div>
+                                <input type="radio"/>
+                            </div>
+                            <span>
+                                A.选项选项选项选项选项选项
+                            </span>
+                        </div>
+                    </li>
+                    <li class="noBorder">
+                        <div class="selectOption clearfix">
+                            <div class="radioUI fl">
+                                <div class="red">
+                                    
+                                </div>
+                                <input type="radio"/>
+                            </div>
+                            <span class="fl">
+                                A.选项选项选项选项选项选项
+                                选项选项选项选项选项选项
+                                选项选项选项选项选项选
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+                <button class="buttonUI next">
+                    下一题
+                </button>
+            </div>
+        </div>
+        <div class="page finishPage" style="display:none">
+            <h1>绍兴司法普法考试系统</h1>
+            <div class="content">
+                <h4 class="title">本次普法考试的成绩</h4>
+                <p class="score"><span>80</span>分</p>
+                <p class="remainder">(本期剩余答题次数:<span>2</span>次)</p>
+                <button class="buttonUI again">再考一次</button>
+                <button class="buttonUI iKnow">我知道了</button>
+            </div>
+
+        </div>
+        <!-- 遮罩 -->
+        <div class="mask" style="display:none">
+            
+        </div>
+        <!-- 判断正误 -->
+        <p class="checkAnswer" style="display:none">
+            回答正确
+        </p>
+        <!-- 是否作答 -->
+        <div class="isRespon alertUI" style="display:none;" >
+            <p class="tip">您还没有作答</p>
+            <div class="buttonBox ">
+                确定
+            </div>
+        </div>
+        <!-- 是否提交 -->
+        <div class="isSubmit alertUI" style="display:none;" >
+            <p class="tip">已提交</p>
+            <div class="buttonBox">
+                确定
+            </div>
+        </div>
+       <!-- 再考一次 -->
+        <div class="alertUI testAgain" style="display:none;">
+            <p class="tip">开始新一轮考试？</p>
+            <div class="buttonBox">
+                <span class="active">取消</span>
+                <span class="noBorder">确定</span>
+            </div>
+        </div>
+        <!-- 竞赛机会用完 -->
+        <div class="runOut alertUI" style="display:none;">
+            <p class="tip">您本次的竞赛机会已用完！</p>
+            <div class="buttonBox">
+                我知道了
+            </div>
+        </div>
+        <!-- 没有答对全部题目 -->
+        <div class=" fail alertUI"  style="display:none;">
+            <p class="tip">
+            <span>
+                很遗憾,您没有答对全部题目。下次继续努力！
+            </span>
+            </p>
+            <div class="buttonBox">
+                我知道了
+            </div>
+        </div>
+        <!-- 刮刮卡 -->
+        <div class="scratchBox">
+            <p class="tip">恭喜您，获得一次抽奖机会！</p>
+            <div class="card">
+                <div class="scratchCard" id='scratchCard'></div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文 字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+    </script>
+    <script type="text/javascript" src="static/js/zepto.min.js"></script>
+    <script type="text/javascript" src="static/js/touch.js"></script>
+    <script type="text/javascript" src="static/js/wScratchpad.js"></script>
+    <script type="text/javascript" src="static/js/common.js"></script>
+    <script type="text/javascript">
+    // 您还没有作答
+     $('.isRespon .buttonBox').bind("touchstart", function (event) {
+            event.preventDefault();
+            $(this).addClass('active');
+
+           $('.isRespon .buttonBox').bind("touchend", function (event) {
+             $(this).removeClass('active');
+             $(this).parents('.isRespon').css('display','none');
+             $('.mask').css('display','none');
+           }); 
+     });
+     // 已提交
+     $('.isSubmit .buttonBox').bind("touchstart", function (event) {
+            event.preventDefault();
+            $(this).addClass('active');
+
+           $('.isSubmit .buttonBox').bind("touchend", function (event) {
+             $(this).removeClass('active');
+             $(this).parents('.isSubmit').css('display','none');
+             $('.mask').css('display','none');
+           }); 
+     });
+    
+    // 刮刮卡组件
+    $('#scratchCard').wScratchPad({
+          size        : 20,          // The size of the brush/scratch.
+          bg          : 'static/img/pic-5.png',  // Background (image path or hex color).
+          fg          : 'static/img/pic-4.png',  // Foreground (image path or hex color).
+          realtime    : true,       // Calculates percentage in realitime.
+          scratchDown : null,       // Set scratchDown callback.
+          scratchMove : null,       // Set scratcMove callback.
+          cursor      : 'crosshair',// Set cursor.
+          scratchUp: function(e, percent){
+                if(percent>40){
+                    $('#scratchCard').wScratchPad('clear');
+                };
+                
+           }
+        });
+
+    // 下一题
+     $('.next').click(function(){
+        var answer=[];
+        $(this).siblings('.selectBox').find('li').each(function(i){
+            if($(this).data("checked")=="1"){
+                answer.push(++i);
+
+            }
+        });
+
+        if(answer.length==0){
+            $(".isRespon").css('display', 'block');
+            $('.mask').css('display','block');
+
+        }else{
+            if(answer.length==1){
+                answer=answer[0];
+                // 要传给后台的数据
+                console.log(answer);
+                // $.ajax();
+            }
+        }       
+    });
+
+      //登陆的表单验证
+    $('.ContestLoginPage .buttonUI').click(function(){ 
+
+            $("input[type='text']").each(function(){
+                if($(this).val() == ""){
+                    $(this).parents(".inputUI").addClass('empty');
+                }else{
+                    $(this).parents(".inputUI").removeClass('empty');
+                }
+            }); 
+
+           if(!(/^1[34578]\d{9}$/.test($("#phone").val()))){ 
+                $("#phone").parents(".inputUI").addClass('empty') 
+                return false; 
+            }else{
+                $("#phone").parents(".inputUI").removeClass('empty')
+            }
+
+
+            if($('.empty').length==0){
+                var nameVal=$("#name").val();
+                var phoneVal=$("#phone").val();
+                var data={ "name": nameVal,"phone":phoneVal};
+                console.log(data)
+                //重置
+            $("input[type='text']").each(function(){
+                $(this).val("");
+            });  
+                //成功请求ajax;
+                // $.ajax({
+                //   type: 'GET',
+                //   url: '/projects',
+                //   // data to be added to query string:
+                //   data: { name: 'Zepto.js' },
+                //   // type of data we are expecting in return:
+                //   dataType: 'json',
+                //   timeout: 300,
+                //   context: $('body'),
+                //   success: function(data){
+                //     // Supposing this JSON payload was received:
+                //     //   {"project": {"id": 42, "html": "<div>..." }}
+                //     // append the HTML to context object.
+                //     this.append(data.project.html)
+                //   },
+                //   error: function(xhr, type){
+                //     alert('Ajax error!')
+                //   }
+                // })
+
+                
+            }
+    });
+    </script>
+ 
+</html>
