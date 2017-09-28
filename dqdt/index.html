@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=tdgDFNyzxcoCTElskmdZ9VZvxagYRkdm"></script>
+    <title>添加自定义覆盖物</title>
+</head>
+<body>
+    <!-- 导航 -->
+    <ul class="tab clearfix">
+      <li class="active tab_bar1">
+          法律服务
+      </li>
+      <li class="tab_bar2">
+        司法行政
+      </li>
+      <li class="no_margin tab_bar3">
+        法治文化
+      </li>
+    </ul>
+
+    <!-- 单位列表 -->
+    <div class="unit_list" >
+      <div class="title">全部单位</div>
+      <ul class="tab_content">
+        <li class="clearfix">
+          <div class="icon fl">1</div>
+          <div class="text fl">
+            <h2 class="unit">德清司法局</h2>
+            <p class="address">浙江省湖州市德清县武康镇千秋东街1号</p>
+          </div>
+          <div class="arrow fr"></div>  
+        </li>
+      </ul>
+    </div>
+
+    
+
+    <!-- 单位详情 -->
+    <div class="details clearfix" style="display:none">
+      <div class="details_icon fl"></div>
+      <div class="text fl">
+         <h2 class="unit">德清司法局</h2>
+         <p class="address">浙江省湖州市德清县武康镇千秋东街1号</p>
+          <p class="tel">0572-857357</p>
+      </div>
+      <a href="" class="nav_icon"></a>
+    </div>
+
+    <!-- 律所公证处 -->
+    <div id="map1" ></div>
+    <!-- 基层司法所 -->
+    <div id="map2" style="display:none"></div>
+    <!-- 法治文化阵地概述 -->
+    <div class="introduce" style="display:none">
+      <h3 class="title">法治文化阵地</h3>
+      <p>
+        近年来，在县委、县政府的重视下，我县法治文化阵地建设取得显著成效，建成了县法治文化基地、莫千山镇瑶坞村法治文化公园、洛舍镇东衡村“三治”主题法治文化园、钟管镇曲溪村法治文化公园、乾元镇法治文化公园、雷甸镇中兴社区法治示范区、双溪村法治文化公园等一批主题鲜明、寓法于乐的法治文化阵地，擦亮了具有德清特色的法治文化品牌。
+
+      </p>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/main.js"></script>
