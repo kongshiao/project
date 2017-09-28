@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+        <title>玩转积分-单位排行</title>
+    </head>
+    <body>
+    <div class="integral_unit integral_box">
+        <div class="tab_bar">
+            <ul class="clearfix">
+                <li class="active">
+                    <a href="" >个人排行</a>
+                </li>
+                <li >
+                    <a href="">单位排行</a>
+                </li>
+                <li>
+                    <a href="">单位内排行</a>
+                </li>
+                <li>
+                    <a href="">积分兑换</a>
+                </li>
+            </ul>
+        </div> 
+        <div class="banner">
+            
+        </div>
+        <div class="content">
+          <div class="ranking_list">
+            <div class="own clearfix">
+                <div class="icon fl">
+                    15
+                </div>
+                <span class="name fl">李三三</span>
+                <span class="integral fr">1158</span>
+            </div>
+            <div class="list_title">
+                <span class="fl">排名</span>
+                <span class="fr">积分</span>
+            </div>
+             <ul class="list">
+              <li class="clearfix">
+                <div class="icon fl">
+                    11
+                </div>
+                <span class="name fl">李三三</span>
+                <span class="integral fr">1158</span>
+              </li>
+              <li class="clearfix">
+                <div class="icon fl">
+                    11
+                </div>
+                <span class="name fl">李三三</span>
+                <span class="integral fr">1158</span>
+              </li>
+              <li class="clearfix">
+                <div class="icon fl">
+                    11
+                </div>
+                <span class="name fl">李三三</span>
+                <span class="integral fr">1158</span>
+              </li>
+              <li class="clearfix">
+                <div class="icon fl">
+                    11
+                </div>
+                <span class="name fl">李三三</span>
+                <span class="integral fr">1158</span>
+              </li>
+              <li class="clearfix">
+                <div class="icon fl">
+                    11
+                </div>
+                <span class="name fl">李三三</span>
+                <span class="integral fr">1158</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    </body>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+</script>
+</html>

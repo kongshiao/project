@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+        <title>为您服务</title>
+    </head>
+    <body>
+    <div class="article">
+        <div class="tab_bar">
+            <ul class="clearfix">
+                <li class="active">
+                    <a href="" >文章学习</a>
+                </li>
+                <li >
+                    <a href="">视频学习</a>
+                </li>
+                <li>
+                    <a href="">积分查询</a>
+                </li>
+                <li>
+                    <a href="">在线考试</a>
+                </li>
+            </ul>
+        </div> 
+        <div class="content">
+            <ul class=" article_list">
+            <!-- 字符串模板 -->
+               <!--  <li>
+                    <a href="" class="clearfix ">
+                        <img src="" alt=""  class="fl" />
+                        <div class="text fl">
+                            <p class="abstract line-clamp">
+                                省属监狱系统“两学一做”省属监狱系统“两学一做”省属监狱系统“两学一做”省属监狱系统“两学一做”
+                            </p>
+                            <div class="clearfix">
+                                    <p class="time fl">2016-07-03</p>
+                                    <p class="view_count fr">1098</p>
+                            </div>
+                        </div>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    </body>
+    <script type="text/javascript" src="static/js/zepto.min.js"></script>
+    <script type="text/javascript" src="static/js/dropload.min.js"></script>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+</script>
+<script type="text/javascript">
+    $(function(){
+    // 页数
+    var page = 0;
+    // 每页展示5个
+    var size = 5;
+
+    // dropload
+    $('.content').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+            page++;
+            // 拼接HTML
+            var result = '';
+            $.ajax({
+                type: 'GET',
+                url: 'http://ons.me/tools/dropload/json.php?page='+page+'&size='+size,
+                dataType: 'json',
+                success: function(data){
+                    var arrLen = data.length;
+                    if(arrLen > 0){
+                        for(var i=0; i<arrLen; i++){
+                               result += '<li><a href="" class="clearfix "><img src="'+data[i].pic+'" alt=""  class="fl" /><div class="text fl"><p class="abstract line-clamp">'+data[i].title+'</p><div class="clearfix"><p class="time fl">'+data[i].date+'</p><p class="view_count fr">1098</p></div></div></a></li>'
+                        }
+                    // 如果没有数据
+                    }else{
+                        // 锁定
+                        me.lock();
+                        // 无数据
+                        me.noData();
+                    }
+                    // 为了测试，延迟1秒加载
+                    setTimeout(function(){
+                        // 插入数据到页面，放到最后面
+                        $('.article_list').append(result);
+                        // 每次数据插入，必须重置
+                        me.resetload();
+                    },1000);
+                },
+                error: function(xhr, type){
+                    alert('Ajax error!');
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                }
+            });
+        }
+    });
+});
+</script>
+</html>

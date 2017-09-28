@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" type="text/css" href="static/plugin/picker/dialog.min.css" />
+        <link rel="stylesheet" type="text/css" href="static/plugin/picker/mobile-select-area.css" />
+        <link rel="stylesheet" type="text/css" href="static/style/validate.css" />
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+        <title>订单填写</title>
+    </head>
+    <body>
+    <div class="order" data-show="1">
+        <div class="header clearfix">
+            <p class="fl">添加收货地址</p>
+            <div class="arrow fr"></div>
+        </div>
+        <div class="goods">
+            <ul class="goods_list">
+              <li >
+                  <a href="" class="clearfix">
+                      <div class="pic_box fl">
+                        <img src="" alt="" />
+                        </div>
+                        <div class="text fl">
+                            <p class="name">宁波天宫庄园门票</p>
+                            <p class="integral"><span>200</span>积分</p>
+                            <p class="price">市场参考价：<span>50</span>起</p>
+                        </div> 
+                  </a>
+              </li>
+            </ul>
+            <div class="count">
+                <span class="fl">数量</span>
+                <span class="fr">x<i>1</i></span>
+            </div>
+            <div class="buy clearfix">
+                <p class="fl">
+                    单价<span>200</span>积分
+                </p>
+                <button class="fr exchange_btn">我要兑换</button>
+            </div>
+        </div>
+    </div>
+    <div class="register order_address" style="display:none;" >
+            <div class="form">
+                <form action="">
+                    <div class="item clearfix">
+                        <p  class=" fl title receiver">
+                            收货人
+                        </p type="text" >
+                        <div  class="fl input">
+                            <input type="text" class="name" placeholder="请输入收货人"  data-required="true" data-descriptions="receiver" >      
+                        </div>
+                    </div>
+                    <div class="item clearfix phone">
+                        <p class=" fl title">
+                            联系电话
+                        </p>
+                        <div class="input"  class="fl">
+                            <input type="text" id="select_area" placeholder="请输入手机号码" data-validate="phone" />       
+                        </div>
+                    </div>
+                    <div class="item clearfix">
+                        <p class=" fl title">
+                            所在地区
+                        </p>
+                        <div class="input"  class="fl">
+                             <input type="text" id="area" placeholder="请选择所在地区" data-required="true" data-descriptions="area" />          
+                        </div>
+                    </div>
+                    <div class="item clearfix ">
+                        <p class=" fl title">
+                            详细地址
+                        </p>
+                        <div class="input fl" >
+                            <input type="text"  placeholder="请输入详细的街道及门牌地址"  data-required="true" data-descriptions="address" />       
+                        </div>
+                    </div>
+                    <button 
+                        class="confirm"
+                        type="submit" 
+                        >
+                        确定
+                    </button>
+                </form>
+            </div>
+    </div>  
+    <div class="alert" style="display:none">
+        <p>提交成功！</p>
+    </div>  
+    </body>
+    <script type="text/javascript" src="static/plugin/picker/jquery-1.min.js"></script>
+    <script type="text/javascript" src="static/plugin/picker/dialog.min.js"></script>
+    <script type="text/javascript" src="static/plugin/picker/mobile-select-area.js"></script>
+    <script type="text/javascript" src="static/js/jquery-mvalidate.js"></script>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+</script>
+<script type="text/javascript">
+   
+var json=[];
+  $.ajax({
+              type: 'GET',
+              url: 'static/json/area.json',
+              dataType: 'json',
+              success: function(data){
+                    json = data;
+                    console.log(json);
+                    var selectArea = new MobileSelectArea();
+                    selectArea.init({ 
+                        trigger: '#area', 
+                        value: $('#area').data('value'), 
+                        text: ['浙江省', '杭州市', '西湖区'], 
+                        data: json,
+                        eventName: 'click',
+                        position:'bottom'
+                    });
+
+                                       
+              },
+              error: function(xhr, type){
+                alert('Ajax error!')
+              }
+        })
+
+        // 表单验证
+              $.mvalidateExtend({
+                phone:{
+                    required : true,   
+                    pattern : /^0?1[3|4|5|8][0-9]\d{8}$/,
+                    each:function(){
+                       
+                    },
+                    descriptions:{
+                        required : '<div class="field-invalidmsg">请输入手机号码</div>',
+                        pattern : '<div class="field-invalidmsg">您输入的手机号码格式不正确</div>',
+                        valid : '<div class="field-validmsg">正确</div>'
+                    }
+                },
+            });
+        $("form").mvalidate({
+            type:1,
+            onKeyup:true,
+            sendForm:true,
+            firstInvalidFocus:false,
+            valid:function(event,options){
+                
+            
+                //点击提交按钮时,表单通过验证触发函数
+                alert("验证通过！接下来可以做你想做的事情啦！");
+                event.preventDefault();
+                if($(".order").data("show") == "1"){
+                    alert("提交");
+                    
+                    // $.ajax({
+                    //   type: 'GET',
+                    //   url: '/projects',
+                    //   data: { name: 'Zepto.js' },
+                    //   dataType: 'json',
+                    //   context: $('body'),
+                    //   success: function(data){
+                    //         $(".alert").show();
+                    //         setTimeout(function(){
+                    //             $(".alert").hide();
+                    //         }, 2000)
+                    //   },
+                    //   error: function(xhr, type){
+                    //     alert('Ajax error!')
+                    //   }
+                    // })
+
+                }
+                // 确定地址   
+                $(".order").data("show","1").show().siblings('.order_address').hide();
+                
+            },
+            invalid:function(event, status, options){
+                //点击提交按钮时,表单未通过验证触发函数
+            },
+            eachField:function(event,status,options){
+                //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+            },
+            eachValidField:function(val){},
+            eachInvalidField:function(event, status, options){},
+            conditional:{
+                confirmpwd:function(){
+                    return $("#pwd").val()==$("#confirmpwd").val();
+                }
+            },
+             descriptions:{
+                area:{
+                    required : '请选择所在地区'
+                },
+                address:{
+                    required : '请输入详细的街道及门牌地址'
+                },
+                 receiver:{
+                    required : '请输入收货人'
+                }
+            }
+        });
+</script>
+<script type="text/javascript">
+//跳到选择地址
+    $(".header").click(function(){
+        $(".order").data("show","0").hide().siblings('.order_address').show();
+    });
+
+// 我要兑换
+$(".exchange_btn").click(function(){
+    $("form").submit();
+    
+});
+
+
+</script>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+        <title>新媒体矩阵</title>
+    </head>
+    <body>
+       <ul class="matrix_list" id="matrix_list">
+           <li>
+               <div class="title clearfix" data-state=0>
+                   <span class="city fl">湖州市</span>
+                   <span class="arrow-icon fr "></span>
+               </div>
+                <div class="slidedown" style="display:none">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="">
+                                <img src="" alt="" />
+                                <p>温州司法</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+           </li>
+           <li>
+               <div class="title clearfix" data-state=0>
+                   <span class="city fl">湖州市</span>
+                   <span class="arrow-icon fr "></span>
+               </div>
+                <div class="slidedown" style="display:none">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="">
+                                <img src="" alt="" />
+                                <p>温州司法</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+           </li>
+           <li>
+               <div class="title clearfix" data-state=0>
+                   <span class="city fl">湖州市</span>
+                   <span class="arrow-icon fr "></span>
+               </div>
+                <div class="slidedown" style="display:none">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="">
+                                <img src="" alt="" />
+                                <p>温州司法</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+           </li>
+           <li>
+               <div class="title clearfix" data-state=0>
+                   <span class="city fl">湖州市</span>
+                   <span class="arrow-icon fr "></span>
+               </div>
+                <div class="slidedown" style="display:none">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="">
+                                <img src="" alt="" />
+                                <p>温州司法</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+           </li>
+       </ul>
+    </body>
+    <script type="text/javascript" src="static/js/zepto.min.js"></script>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+</script>
+<script type="text/javascript">
+    $('.title').click(function(){
+        if($(this).data('state') == 0){
+            $(this).next(".slidedown").show();
+            $(this).find(".arrow-icon").addClass('active')
+            $(this).data('state',1)
+        }else{
+            $(this).next(".slidedown").hide();
+            $(this).data('state',0)
+            $(this).find(".arrow-icon").removeClass('active')
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+        <title>积分查询</title>
+    </head>
+    <body>
+    <div class="integral_query integral_box">
+        <div class="tab_bar">
+            <ul class="clearfix">
+                <li>
+                    <a href="" >文章学习</a>
+                </li>
+                <li >
+                    <a href="">视频学习</a>
+                </li>
+                <li  class="active">
+                    <a href="">积分查询</a>
+                </li>
+                <li>
+                    <a href="">在线考试</a>
+                </li>
+            </ul>
+        </div> 
+        <div class="banner">
+            <div class="integral_count">
+                <p class="tip">
+                    在线学习积分
+                </p>
+                <p class="count">
+                    600
+                </p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">积分明细</div>
+            <ul>
+                <li class="clearfix">
+                    <p class="fl">
+                        已阅读文章<span><i>20</i>篇</span>
+                    </p>
+                    <p class="fr">
+                        累计<span><i>40</i>分</span>
+                    </p>
+                </li>
+                <li class="clearfix">
+                    <p class="fl">
+                        已学习视频<span><i>31</i>篇</span>
+                    </p>
+                    <p class="fr">
+                        累计<span><i>62</i>分</span>
+                    </p>
+                </li>
+            </ul>
+          
+        </div>
+    </div>
+    </body>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+</script>
+</html>

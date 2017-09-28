@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+        <link rel="stylesheet" type="text/css" href="http://g.alicdn.com/de/prismplayer/1.7.6/skins/default/index-min.css" />
+        <title>视频学习-详情页</title>
+        
+    </head>
+    <body>
+    <div class="video_detail">
+        <p class="title line-clamp">
+        题目题目题目题目题目题目题目题目题目题目题目题目题目题目题目题目题目题
+        </p>
+        <div class="video_box" id="player">
+        
+        </div>
+       <div class="msg clearfix">
+            <p class="count fl">20698</p>
+            <p class="time fr">2016-07-03</p>
+        </div>
+        <div class="hr"></div>
+        <div class="text_box">
+            <div class="top clearfix">
+                <span class="icon fl"></span>
+                <span class="tip fl">和小法一起学</span>
+            </div>
+            <p class="text">
+                内容内容内容内容内容内容
+                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+            </p>
+        </div>
+        </div>
+    </div>
+    </body>
+    <script type="text/javascript" src="http://g.alicdn.com/de/prismplayer/1.7.6/prism-h5-min.js"></script>
+    <script type="text/javascript" src="static/js/zepto.min.js"></script>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+</script>
+    <script>
+        var player = new prismplayer({
+        id: 'player',
+        width: '100%',
+        autoplay:true ,
+        prismType:2, //固定参数
+        vid : 'ce75eda6d53f4a41827deaa83d35b016',
+        accId : 'LTAI2PSz9wCqXmXg',
+        accSecret : 'oFbBrEDa1kXaEK1HJ743MBJUQdduMh',
+        apiKey : 'iznecjr8ig6sstwhk8jxn7qfgnguf7zirbuzychtpyejga6ykqxxd733kpbhen5c',
+        showBarTime: 0,
+        cover: 'http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png',
+        });
+
+        player.on('ended', function(event) {
+            alert(123)
+            // $.ajax({
+            //   type: 'GET',
+            //   url: '/projects',
+            //   data: { name: 'Zepto.js' },
+            //   dataType: 'json',
+            //   timeout: 300,
+            //   context: $('body'),
+            //   success: function(data){
+               
+            //   },
+            //   error: function(xhr, type){
+            //     alert('Ajax error!')
+            //   }
+            // })
+        });   
+    </script>
+</html>

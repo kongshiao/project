@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" type="text/css" href="static/style/swiper-3.4.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="static/style/style.css" />
+        <title>首页</title>
+    </head>
+    <body>
+    <div id="app">
+        <!-- 头部 -->
+        <div class="header clearfix">
+            <div class="menu fl">
+                <div class="menu_icon" >
+                    
+                </div>
+                <div class="slidedown" style="display:none;">
+                    <ul>
+                        <li>
+                            <a href="">在线学习</a>
+                        </li>
+                         <li>
+                            <a href="">政务公开</a>
+                        </li>
+                         <li>
+                            <a href="">为您服务</a>
+                        </li>
+                         <li>
+                            <a href="">新媒体矩阵</a>
+                        </li>
+                         <li>
+                            <a href="">原创榜</a>
+                        </li>
+                         <li>
+                            <a href="">积分榜</a>
+                        </li>
+                    </ul>
+                    <i class="triangle"></i>
+                </div>
+            </div>
+            <div class="logo"></div>
+            <div class="user fr"></div>
+        </div>
+        <!-- 头部结束 -->
+        <!-- 轮播 -->
+        <!-- <div class="slide"> -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"  data-swiper-autoplay="2000">
+                        <img src="" alt="" />
+                        <div class="tip">
+                            <p>马柏韦厅长到杭州市属监狱调研指导工作</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-swiper-autoplay="2000">
+                        <img src=""  alt="" />
+                        <div class="tip">
+                            <p>马柏韦厅长到杭州市属监狱调研指导工作</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-swiper-autoplay="2000">
+                        <img src=""  alt="" />
+                        <div class="tip">
+                            <p>马柏韦厅长到杭州市属监狱调研指导工作</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        <!-- </div> -->
+        <!-- 轮播结束 -->
+        <!-- home_icon -->
+        <div class="home_icon_bar">
+            <ul class="clearfix">
+                <li >
+                    <a href="#" >
+                        <div class="pic icon1"></div>
+                        <p class="title">在线学习</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pic icon2"></div>
+                        <p class="title">原创榜</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pic icon3"></div>
+                        <p class="title">新媒体矩阵</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pic icon4"></div>
+                        <p class="title">积分榜</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- home_icon 结束 -->
+        <!-- 资讯 -->
+        <div class="information">
+            <div class="title_box clearfix">
+                <span class="title">精选资讯</span>
+                <span class="tip">实时掌握行业信息</span>
+                <a href="" class="fr more">更多></a>
+            </div>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="static/img/home-pic-wushuigongzhi.png"  alt="" />
+                        <div class="mask"></div>
+                        <p class="tip">五水共治</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="static/img/home-pic-qitazhuanti.png" alt="" />
+                        <div class="mask"></div>
+                        <p class="tip">其他专题</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 资讯结束 -->
+    </div>
+    </body>
+    <script type="text/javascript" src="static/js/zepto.min.js"></script>
+    <script type="text/javascript" src="static/js/swiper-3.4.2.min.js"></script>
+    <script type="text/javascript">
+        // 响应式处理
+        function responsive(){
+                var width=document.body.clientWidth;//获取文档即视口的宽度
+                document.getElementsByTagName("html")[0].style.fontSize=(width/18.75)+"px";//设置html文字大小为40px;
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+
+
+        function responsive(){
+            var width=document.body.clientWidth;
+            document.getElementsByTagName("html")[0].style.fontSize=(width/18.6)+"px";
+        }
+        responsive();
+        window.onresize=function(){
+            responsive();
+        }
+
+        // 菜单显示/隐藏
+        $(".menu_icon").click(function(event){
+            event.stopPropagation()
+            $(".slidedown").toggle();
+        });
+        $(document).click(function(){
+            $(".slidedown").hide();
+        });
+</script>
+<!-- 轮播 -->
+<script type="text/javascript">
+    var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    autoplay:1,
+    speed:1000,
+  })       
+</script>
+</html>
