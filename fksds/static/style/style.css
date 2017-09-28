@@ -1,0 +1,142 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+
+/* ==========================================================================
+布局相关
+============================================================================ */
+/*
+水平滚动
+*/
+.scroll-x { width: 100%; overflow-y: hidden; overflow-x: auto; -ms-overflow-style: -ms-autohiding-scrollbar; -webkit-overflow-scrolling: touch; }
+
+/*
+垂直滚动
+*/
+.scroll-y { height: 240px; overflow-y: scroll; -webkit-overflow-scrolling: touch; resize: vertical; }
+
+/*
+清除浮动
+*/
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+
+.clearfix:after { clear: both; }
+
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix { zoom: 1; }
+
+/*
+hidden
+*/
+.hidden { overflow: hidden; }
+
+/*
+左浮动
+*/
+.fl { float: left; }
+
+/*
+右浮动
+*/
+.fr { float: right; }
+
+/*
+垂直居中对齐
+*/
+/*父容器*/
+.vertical-box { font-size: 0.001px; }
+
+.vertical-box:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; }
+
+.vertical-middle { display: inline-block; max-width: 100%; vertical-align: middle; }
+
+/*
+块
+*/
+.block { display: block; }
+
+/*
+内联
+*/
+.inline { display: inline; }
+
+/*
+内联-块
+*/
+.inline-block { display: inline-block; }
+
+/*
+隐藏
+*/
+.hide { display: none !important; visibility: hidden !important; }
+
+/* ==========================================================================
+文本相关
+============================================================================ */
+/*
+文字溢出截断
+*/
+/*单行文字截断*/
+.truncate { word-wrap: normal; /*for IE */ text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+
+/*多行文字截断*/
+.line-clamp { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* ios禁止点中黑色框 */
+a { -webkit-tap-highlight-color: transparent; }
+
+/* ========================================================================== Component: base ============================================================================ */
+button { outline: none; }
+
+html, body { height: 100%; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif; }
+
+body { font-size: 0.75rem; background: url("../img/bg.jpg") no-repeat; background-size: 18.75rem 30.05rem; background-attachment: fixed; background-position: 0 0; }
+
+body:before { content: ' '; position: fixed; z-index: -1; top: 0; right: 0; bottom: 0; left: 0; background: url("../img/bg.jpg") center 0 no-repeat; background-size: cover; }
+
+.page.postgraduate .header { background: url("../img/title-yanjiusheng.png") no-repeat center; background-size: 18.75rem 8.75rem; }
+.page.postgraduate .rule { background: url("../img/guize-yanjiusheng.png"); background-size: 16rem 11.5rem; }
+
+.page { width: 100%; padding-bottom: 2.5rem; }
+.page .header { height: 8.75rem; width: 100%; background: url("../img/title-benkesheng.png") no-repeat center; background-size: 18.75rem 8.75rem; }
+.page .rule { width: 16rem; height: 11.5rem; margin: 0 auto; background: url("../img/guize-benkesheng.png"); background-size: 16rem 11.5rem; margin-bottom: 0.25rem; }
+.page .memberBox { width: 12.75rem; margin: 0 auto; overflow: hidden; margin-bottom: 3rem; }
+.page .memberBox ul { width: 18.75rem; }
+.page .memberBox ul li { float: left; width: 4.3rem; margin-right: 4.15rem; margin-top: 1.75rem; }
+.page .memberBox ul li .photo { box-sizing: border-box; width: 100%; height: 4.3rem; margin-bottom: 0.6rem; }
+.page .memberBox ul li .photo img { width: 100%; height: 100%; }
+.page .memberBox ul li .nameBox { width: 100%; }
+.page .memberBox ul li .nameBox .num { display: inline-block; width: 18px; height: 18px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: #28BBE7; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; font-size: 0.65rem; text-align: center; line-height: 18px; margin: 0 0.45rem 0.55rem 0.25rem; }
+.page .memberBox ul li .nameBox .name { font-size: 0.75rem; line-height: 0.9rem; }
+.page .memberBox ul li .voteBox { position: relative; width: 3.75rem; height: 1.2rem; margin: 0 auto; }
+.page .memberBox ul li .voteBox .vote { position: absolute; top: 0; left: 0; width: 3.75rem; height: 1.2rem; box-sizing: border-box; border: 0.05rem solid #28BBE7; -moz-border-radius: 0.125rem; -webkit-border-radius: 0.125rem; border-radius: 0.125rem; color: #28BBE7; font-size: 0.7rem; text-align: center; line-height: 1.2rem; }
+.page .memberBox ul li .voteBox .votePic { position: absolute; top: 0; left: 0; width: 3.75rem; height: 1.2rem; background: url("../img/btn-vote-nor.png"); background-size: 100%; margin: 0 auto; }
+.page .memberBox ul li .voteBox .votePic:active { background: url("../img/btn-vote-hover.png"); background-size: 100%; }
+.page .thanks { width: 16rem; height: 2.75rem; margin: 0 auto 2.3rem; background: url("../img/ganxiecanyu .png"); background-size: 100%; }
+.page .text { margin-bottom: 1.55rem; }
+.page .text p { text-align: center; line-height: 1rem; font-size: 0.6rem; }
+.page .weChart { width: 5rem; height: 5rem; margin: 0 auto 2.5rem; }
+.page .weChart img { width: 100%; height: 100%; }
+
+.alertUI { position: fixed; bottom: 14.05rem; left: 50%; overflow: hidden; margin-left: -6.75rem; width: 13.5rem; background: #fff; font-weight: 700; -moz-border-radius: 0.75rem; -webkit-border-radius: 0.75rem; border-radius: 0.75rem; }
+.alertUI .tip { font-size: 0.85rem; text-align: center; padding: 0.8rem 1.5rem; color: #333; line-height: 1.2rem; }
+.alertUI .buttonBox { height: 2.2rem; text-align: center; font-size: 0.85rem; line-height: 2.2rem; color: #28BBE7; border-top: 0.025rem solid #999; }
+.alertUI .buttonBox:active { background: #d0d0d0; border-color: #d0d0d0; }
+
+[v-cloak] { display: none; }
+
+.mask { position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0, 0, 0, 0.3); }
