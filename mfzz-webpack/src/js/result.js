@@ -16,7 +16,7 @@ function ajaxErrorLog(msg){
             $(".lottery_btn").click(function(){
                  $.ajax({
                       type: 'POST',
-                      url:"zjsf/draw",
+                      url:"/zjsf/draw",
                       dataType: 'json',
                       success: function(data){
                         if(data.success){
@@ -48,18 +48,22 @@ function ajaxErrorLog(msg){
                           ajaxErrorLog(errorObj);
                       }
                     })
-                 $(this).hide().siblings(".lottery_btn_finishied").show();
+
+                 $(this).hide();
+                 $(".btn_box").prepend('<div class="btn  lottery_btn_finishied fl">查看</div>');
             });
             $(".back").click(function(){
                 WeixinJSBridge.call('closeWindow');
             });
-            $(".lottery_btn_finishied").click(function(){
-                $(".hint").text("您已抽过奖").show();
-                $(".lottery").show();
-                setTimeout(function(){
-                  $(".hint").hide();
-                }, 1500)
-            });
+
+            $('.btn_box').on('click','.lottery_btn_finishied',function(){
+              $(".hint").text("您已抽过奖").show();
+                  $(".lottery").show();
+                  setTimeout(function(){
+                    $(".hint").hide();
+                  }, 1500)
+              })
+
             $(".share").click(function(){
               $(".hint").text("点击右上角分享").show();
               setTimeout(function(){

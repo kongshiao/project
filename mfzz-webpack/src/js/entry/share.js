@@ -3,3 +3,4 @@ require("../../style/style.css");
 
 //引入js
 require("../commom.js");
+require("../share.js");

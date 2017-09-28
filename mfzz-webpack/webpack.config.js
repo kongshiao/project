@@ -66,7 +66,13 @@ var pages = getEntry('./src/view/*.html');
             test: /\.(png|jpg|gif|ico)$/,
             use: [
               {
-                loader: 'file-loader?name=img/[name].[hash].[ext]',
+                loader: 'file-loader',
+                options:{
+                  name:'img/[name].[hash].[ext]',
+                  publicPath:'http://contest-static.legalboot.com/zjsf/static/'
+                }
+
+
               }
             ]                           
           },
