@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- 禁止缩放 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- 移动端禁止识别电话邮箱 -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="email=no" name="format-detection" />
+        <!-- SEO -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <title>杭州律协投票</title>
+        <link rel="stylesheet" href="static/style/style.css">
+    </head>
+    <body>
+         <div id="app" v-show="onload">
+            <div class="top">
+                <div class="title"></div>
+            </div>
+             
+             <p class="time">-活动时间：1017年9月～12月-</p>
+             <div class="precautions">
+                <div class="section_title"></div>
+                 <p>
+                     经过为期20天的展播，有20位律师进入本次“杭州市第二届‘十大律师先锋’之新锐律师评选活动”的投票环节。
+                 </p>
+                 <h4 class="sub_title">投票规则：</h4>
+                 <p>
+                     每人每天限投1次，每次投满10位律师方可提交；
+                 </p>
+                 <h4 class="sub_title">投票渠道：</h4>
+                 <p>
+                     “杭州司法” “杭州律协”“杭州4套”“律事通”四家微信公众号将开通投票渠道，投票使用同一链接，合并统计得票数；
+                 </p>
+                 <h4 class="sub_title">投票结果：</h4>
+                 <p>
+                     此次“杭州市第二届‘十大律师先锋’之新锐律师评选活动”的评选将结合线上投票及线下评审两部分进行综合评比。投票结果作为“新锐律师”评选活动的线上考核部分，将折合为相应分数，在最终评比中占比30%；线下评审部分由评委会对20位律师进行评选，评选结果在最终评比中占比70%；
+                 </p>
+                 <h4 class="sub_title">投票期限：</h4>
+                 <p>
+                     11月17日0：00至11月24日24：00，为期7天；
+                 </p>
+             </div>
+             <div class="vote_wrap">
+                 <div class="section_title"></div>
+                 <ul class="vote_list">
+                     <li 
+                        class="clearfix"
+                        v-for="(item,index) in list"
+                        :index="index"
+                        >
+                         <div class="pic fl">
+                             <img :src="item.headUrl" alt="">
+                         </div>
+                        <div class="text fl">
+                            <p class="name">{{item.name}}</p>
+                            <p class="unit">{{item.department}}</p>
+                            <div class="ticket_box clearfix">
+                                <div class="progress_bar fl">
+                                    <div class="inner"
+                                         :style="{width:item.percentage}" 
+                                         >
+                                         </div>
+                                </div>
+                                <p class="votes_num fr">
+                                    <span>{{item.votes}}</span>票
+                                </p>
+                            </div>
+                        </div> 
+                        <div 
+                            class="checkUI fr"
+                            :class="{checked:item.isChecked}"
+                            @click="vote(item.id)"
+                            v-if="!disable"
+                            >                               
+                        </div>
+                        <div 
+                            class="checkUI fr"
+                            :class="{checked:item.isChecked,disable:disable}"
+                            v-else
+                            >                               
+                        </div> 
+                     </li>
+                 </ul>
+             </div>
+             <div class="submit_btn" 
+                  @click="submit()"
+                  v-if="isSubmit">
+              提交
+            </div>
+             <div class="submit_btn" 
+                  @click="submitTip()"
+                  v-else>
+              提交
+            </div>
+             <div class="foot">
+                 <p>
+                    <span>主办方：</span>杭州市委政法委、杭州市文明办、杭州市司法局、杭州市普法办、杭州电视台、杭州日报报业集团
+                </p>
+                <p>
+                    <span>承办方：</span>
+                    杭州市律师协会、杭州4套、杭州日报、江干区司法局、律事通   
+                </p>
+                <p>
+                   <span>技术支持：</span>杭州律博科技
+                </p>
+                <p>
+                   <span>投票监督电话：</span>0571-87557306。
+                </p>
+             </div>
+         </div>
+    </body>
+    <script src="static/js/vue.js"></script>
+    <script src="static/js/vue.resource.js"></script>
+    <script src="static/js/main.js"></script>
+</html>
