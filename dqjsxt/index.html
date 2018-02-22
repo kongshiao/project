@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- 禁止缩放 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Add to homescreen for Chrome on Android -->
+  <!-- 移动端禁止识别电话邮箱 -->
+  <meta name="format-detection" content="telephone=no" />
+  <meta content="email=no" name="format-detection" />
+  <!-- SEO -->
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title>德清知识竞赛</title>
+  <link th:href="@{/pufa/style/style.css}" rel="stylesheet" href="static/style/style.css">
+</head>
+
+<body>
+  <!-- 规则页 -->
+  <div class="rule page">
+    <div class="banner">
+      <img th:src="@{/pufa/img/bg_01.jpg}" src="static/img/bg_01.jpg" alt="">
+    </div>
+    <div class="item">
+      <div class="content">
+        <h3 class="title">竞赛说明</h3>
+        <p th:text="${config.info}" class="text">竞赛说明</p>
+      </div>
+      <div class="bottom"></div>
+    </div>
+    <div class="item">
+      <div class="content" style="border-radius: 0.375rem;">
+        <h3 class="title">竞赛规则</h3>
+        <p th:text="${config.rule}" class="text"></p>
+      </div>
+      <div class="bottom"></div>
+    </div>
+    <div class="item">
+      <div class="content" style="border-radius: 0.375rem;">
+        <h3 class="title">注意事项</h3>
+        <p th:text="${config.note}" class="text">注意事项</p>
+      </div>
+      <div class="bottom"></div>
+    </div>
+    <div class="btn">确定</div>
+    <div class="footer">
+      <img th:src="@{/pufa/img/bg_2.png}" src="static/img/bg_2.png" alt="">
+    </div>
+  </div>
+  <!-- 答题页 -->
+  <div class="answer page" style="display: none">
+    <div th:attr="data-qid=${ques.id}" th:each="ques,stat : ${single}" class="item" data-qid="23" style="display: none">
+      <h3 th:text="${'第' + stat.count + '题'}" class="title"></h3>
+      <div class="content">
+        <div class="wrap">
+          <p th:text="${ques.question}" class="question"></p>
+          <p th:each="i : ${ {'a','b','c','d'} }" th:text="${i + '.' + ques.answer.get(i)}" class="option"></p>
+          <p th:text="${'共' + stat.count + '/' + stat.size + '题'}" class="num">共1/5题</p>
+        </div>
+        <div class="bottom"></div>
+      </div>
+      <div class="btn next">下一题</div>
+    </div>
+    <div class="footer">
+      <img th:src="@{/pufa/img/bg_2.png}" src="static/img/bg_2.png" alt="">
+    </div>
+    <div class="toast">您还未作答</div>
+  </div>
+  <!-- 得分页 -->
+  <div class="result page" style="display: none;">
+    <div class="banner"></div>
+    <div class="score">
+      <span>0</span>
+    </div>
+    <div class="btn_box clearfix">
+      <div id="onMenuShareAppMessage" class="btn_1 fl back">返回</div>
+      <div class="btn_2 fr">重新答题</div>
+    </div>
+    <p class="tip">-分享后您今天可以获得一次答题机会-</p>
+  </div>
+  <!-- 得分页 满分-->
+  <div class="result page full" style="display: none">
+    <div class="banner"></div>
+    <div class="score"></div>
+    <div class="btn_box clearfix">
+      <div class="btn_3" style="margin:0 auto;">立即抽奖</div>
+    </div>
+    <p class="tip">-直接退出视为放弃抽奖-</p>
+  </div>
+  <!-- 抽奖页 -->
+  <div class="lottery page">
+    <div class="lottery_box">
+      <div class="result win" style="display: none;">
+        <span>null</span>
+      </div>
+      <div class="result not_win" style="display: none;">
+        <p>分享到朋友圈后可额外获得一次抽奖机会</p>
+      </div>
+      <div class="scratchCard" id='scratchCard'></div>
+
+    </div>
+    <div class="btn_more" style="display: none;">再抽一次</div>
+    <div class="footer">
+      <img th:src="@{/pufa/img/bg_2.png}" src="static/img/bg_2.png" alt="">
+    </div>
+  </div>
+</body>
+<script th:src="@{/pufa/js/zepto.min.js}" src="static/js/zepto.min.js"></script>
+<script th:src="@{/pufa/js/wScratchpad.js}" src="static/js/wScratchpad.js"></script>
+<script th:src="@{/pufa/js/common.js}" src="static/js/common.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<script th:inline="javascript" type="text/javascript">
+
+  wx.config({
+    debug: true,
+    appId: /*[[${ wxJsApi.appId }]]*/ id,
+    timestamp: /*[[${ wxJsApi.timestamp }]]*/ 1232,
+    nonceStr: /*[[${ wxJsApi.noncestr }]]*/ sdd,
+    signature: /*[[${ wxJsApi.signature }]]*/ sss,
+    jsApiList: [
+      'checkJsApi',
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage'
+    ]
+  });
+
+  wx.ready(function () {
+    var shareId = 0;
+    var shareType = "";
+    // 提交事件
+    $(".answer .next.submit").click(function () {
+      $.ajax({
+        type: 'POST',
+        url: url + '/dqks/pufa/answer',
+        data: { single: JSON.stringify(single) },
+        dataType: 'json',
+        success: function (data) {
+          if (data.code == 0) {
+            shareType = "ANSWER";
+            shareId = data.data.shareId;
+            fullMark = data.data.fullMark;
+            if (fullMark) {
+              //满分
+              $(".answer").hide().siblings(".full").show();
+            } else {
+              // 非满分
+              $(".result .score").find("span").text(data.data.score);
+              $(".answer").hide().siblings(".result:not(.full)").show();
+            }
+            wx.onMenuShareTimeline({
+              title: '普法知识竞赛',
+              link: 'http://192.168.0.201:8100/dqks/pufa/myscore/' + shareId,
+              success: function (res) {
+                $.get("http://192.168.0.201:8100/dqks/pufa/share?type=" + shareType);
+              }
+            });
+          } else {
+            alert(data.msg)
+          }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          alert('请求错误！')
+        }
+      })
+    })
+    // 提交事件 END
+    //抽奖事件
+    $(".result.full .btn_3").click(function(){
+       //抽奖
+      $.ajax({
+          type: 'POST',
+          url: url+'/dqks/pufa/draw',
+          dataType: 'json',
+          success: function(data){
+            if(data.code == 0){
+              
+              var isPrize = data.data.isPrize;
+              if(isPrize){
+                // 中奖
+                $(".lottery .win span").text(data.data.prize);
+                $(".lottery .win").show();
+              }else{
+                //未中奖
+                $(".lottery .not_win").show();
+              }
+
+              $('#scratchCard').wScratchPad({
+                size: 20,          // The size of the brush/scratch.
+                bg: 'img/bg_transparent.png',  // Background (image path or hex color).
+                fg: 'img/bg_21.png',  // Foreground (image path or hex color).
+                realtime: true,       // Calculates percentage in realitime.
+                scratchDown: null,       // Set scratchDown callback.
+                scratchMove: null,       // Set scratcMove callback.
+                cursor: 'crosshair',// Set cursor.
+                scratchUp: function (e, percent) {
+                  if (percent > 40) {
+                    $('#scratchCard').wScratchPad('clear');
+                    if(!isPrize){
+                      $(".lottery .btn_more").show();
+                    }
+                  };
+                }
+              });
+
+              $(".full").hide();
+              $(".lottery").addClass("visible");
+
+            }else{
+              alert(data.msg)
+            }
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert('请求错误！')
+          }
+      })
+    })
+    //抽奖事件 END
+
+
+
+  });
+
+
+</script>
+
+</html>
